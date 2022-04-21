@@ -21,7 +21,6 @@ function GetTopPics() {
             const json = await response.json();
 
             setAccommodations(json.data);
-            console.log(json);
           } else {
             setError("An error occured");
           }
@@ -44,7 +43,6 @@ function GetTopPics() {
     return <div className="text-warning">An error occured: {error}</div>;
   }
 
-  console.log(accommodations);
   return (
     <>
       <ListGroup>
@@ -52,8 +50,8 @@ function GetTopPics() {
           {accommodations.map(accommodation => {
             if (accommodation.attributes.featured === true) {
               return (
-                <Col>
-                  <ListGroup.Item key={accommodation.id}>
+                <Col key={accommodation.id} className="p-0">
+                  <ListGroup.Item>
                     <Link
                       className="link-info"
                       to={`/accommodations/${accommodation.id}`}
@@ -72,7 +70,7 @@ function GetTopPics() {
                             {accommodation.attributes.name}
                           </Card.Title>
                           <Card.Text>
-                            {accommodation.attributes.description.slice(0, 40)}
+                            {accommodation.attributes.description.slice(0, 100)}
                             ...
                           </Card.Text>
                           <Button variant="primary">Read more</Button>
