@@ -1,19 +1,11 @@
 import { BASE_URL } from "../../../constants/api";
 import { useState, useEffect } from "react";
-import {
-  Container,
-  Card,
-  Row,
-  Col,
-  ListGroup,
-  Link,
-  Button,
-  Carousel,
-} from "react-bootstrap";
+import { Row, Col, ListGroup, Carousel } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import Heading from "../../layout/Heading";
 import { Breadcrumb } from "react-bootstrap";
 import GetFacilitiesCloseBy from "../utils/GetFacilitiesCloseBy";
+import GetInquiryModal from "./GetInquiryModal";
 
 export default function GetSingleAccommodation() {
   const [accommodations, setAccommodations] = useState([]);
@@ -59,10 +51,8 @@ export default function GetSingleAccommodation() {
   console.log(accommodations);
 
   const attractions = accommodations.attributes.attractions[0];
-  //console.log(typeof attractions);
-  // console.log(attractions.Edvard_Grieg_Museum_Troldhaugen);
-  // console.log(typeof attractions.Edvard_Grieg_Museum_Troldhaugen);
-  GetFacilitiesCloseBy(attractions);
+  const facilities = accommodations.attributes.facilities[0];
+
   return (
     <>
       <Breadcrumb>
@@ -118,18 +108,15 @@ export default function GetSingleAccommodation() {
             <Col>
               <ListGroup>
                 <h4>Facilities:</h4>
-
-                <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-                <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+                <GetFacilitiesCloseBy object={facilities} />
               </ListGroup>
             </Col>
             <Col>
               <h4>Close by:</h4>
+              <GetFacilitiesCloseBy object={attractions} />
             </Col>
           </Row>
+          <GetInquiryModal />
         </Col>
       </Row>
     </>

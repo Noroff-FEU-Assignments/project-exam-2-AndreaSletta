@@ -1,4 +1,4 @@
-import CreateNavbar from "./components/layout/Navbar";
+import CreateNavbar from "./components/layout/CreateNavbar";
 import "./sass/style.scss";
 
 function App() {

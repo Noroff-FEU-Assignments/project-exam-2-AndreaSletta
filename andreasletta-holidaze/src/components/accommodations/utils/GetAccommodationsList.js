@@ -43,8 +43,6 @@ function GetAccommodationsList() {
     return <div className="text-warning">An error occured: {error}</div>;
   }
 
-  const HotelCheck = document.querySelector("#Hotel");
-
   //
   function CheckBox3() {
     const initialList = [accommodations];

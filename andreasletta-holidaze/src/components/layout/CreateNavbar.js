@@ -11,8 +11,9 @@ import Container from "react-bootstrap/Container";
 import Home from "../home/Home";
 import Accommodations from "../accommodations/Accommodations";
 import SingleAccommodation from "../singleAccommodation/SingleAccommodation";
+import ContactUs from "../contactUs/ContactUs";
 
-function CreateNavbar() {
+export default function CreateNavbar() {
   return (
     <Router>
       <Navbar
@@ -37,6 +38,9 @@ function CreateNavbar() {
             <NavLink to="/accommodations" className="nav-link">
               Accommodations
             </NavLink>
+            <NavLink to="/contactus" className="nav-link">
+              Contact us
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -45,10 +49,9 @@ function CreateNavbar() {
           <Route path="/" element={<Home />} />
           <Route path="/accommodations" element={<Accommodations />} />
           <Route path="/accommodations/:id" element={<SingleAccommodation />} />
+          <Route path="/contactus" element={<ContactUs />} />
         </Routes>
       </Container>
     </Router>
   );
 }
-
-export default CreateNavbar;
