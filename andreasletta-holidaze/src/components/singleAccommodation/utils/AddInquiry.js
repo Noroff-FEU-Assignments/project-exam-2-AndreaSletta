@@ -4,91 +4,100 @@
 //const loading = document.querySelector(".loading");
 
 import { BASE_URL } from "../../../constants/api";
-
+import axios from "axios";
 //const username = getUsername();
 
 export default function AddInquiry(event) {
   event.preventDefault();
 
+  const accommodationName = document.querySelector("h1").innerText;
+  const inquiryModal = document.querySelector("#inquiryModal");
   const formName = document.querySelector("#formName");
+  const formNameMessage = document.querySelector("#formNameMessage");
   const formEmail = document.querySelector("#formEmail");
+  const formEmailMessage = document.querySelector("#formEmailMessage");
   const formSubject = document.querySelector("#formSubject");
+  const formSubjectMessage = document.querySelector("#formSubjectMessage");
   const formMessage = document.querySelector("#formMessage");
+  const formMessageMessage = document.querySelector("#formMessageMessage");
 
   const nameValue = formName.value.trim();
   const emailValue = formEmail.value.trim();
   const subjectValue = formSubject.value.trim();
   const messageValue = formMessage.value.trim();
 
-  if (
-    nameValue.length === 0 ||
-    emailValue.length === 0 ||
-    subjectValue.length === 0 ||
-    messageValue.length === 0
-  ) {
-    console.log("invalid input");
+  //validate form and display errors
+
+  if (checkLength(formName.value, 0)) {
+    formNameMessage.innerHTML = "Valid name";
+  } else {
+    formNameMessage.innerHTML = "Please enter your name";
   }
-  addInquiry(nameValue, emailValue, subjectValue, messageValue);
-  console.log("please wait...");
-  /*
-    message.style.display = "block";
-    message.innerHTML = `<h2>Processing, please wait...</h2> 
-      <i class="fas fa-plus"></i>`;*/
-}
-async function addInquiry(nameValue, emailValue, subjectValue, messageValue) {
-  const newUrl = BASE_URL + "enquiries";
-  const uploadUrl = "https://sleepy-falls-61953.herokuapp.com/upload/";
 
-  fetch(nameValue)
-    .then(response => response.blob())
-    .then(function (myBlob) {
-      const formData = new FormData();
-      formData.append("files", myBlob);
+  if (checkLength(formEmail.value, 0)) {
+    formEmailMessage.innerHTML = "Valid name";
+  } else {
+    formEmailMessage.innerHTML = "Please enter your name";
+  }
 
-      //Upload the image to strapi
-      fetch(uploadUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: ``,
+  if (validateEmail(formEmail.value)) {
+    formEmailMessage.innerHTML = "Valid name";
+  } else {
+    formEmailMessage.innerHTML = "Please enter your name";
+  }
+
+  if (checkLength(formSubject.value, 0)) {
+    formSubjectMessage.innerHTML = "Valid name";
+  } else {
+    formSubjectMessage.innerHTML = "Please enter your name";
+  }
+
+  if (checkLength(formMessage.value, 0)) {
+    formMessageMessage.innerHTML = "Valid name";
+  } else {
+    formMessageMessage.innerHTML = "Please enter your name";
+  }
+
+  //If form vaild, send
+  if (
+    checkLength(formName.value, 0) &&
+    checkLength(formSubject.value, 0) &&
+    checkLength(formEmail.value, 0) &&
+    validateEmail(formEmail.value) &&
+    checkLength(formMessage.value, 0)
+  ) {
+    axios
+      .post(`${BASE_URL}enquiries`, {
+        data: {
+          name: `${nameValue}`,
+          email: `${emailValue}`,
+          subject: `${accommodationName}: ${subjectValue}`,
+          message: `${messageValue}`,
         },
-        body: formData,
       })
-        .then(response => response.json())
-        .then(result => {
-          const data = JSON.stringify({
-            name: nameValue,
-            email: emailValue,
-            subject: subjectValue,
-            message: messageValue,
-          });
+      .then(response => {
+        console.log(response);
 
-          // Upload new product
-          const options = {
-            method: "POST",
-            body: data,
-            headers: {
-              Authorization: ``,
-            },
-          };
-          try {
-            fetch(newUrl, options).then(response => {
-              console.log("added");
-              console.log(response);
-              /*
-              function reload() {
-                setTimeout(function () {
-                  location.reload();
-                }, 3000);
-              }
-              reload();*/
-            });
-          } catch (error) {
-            console.log(error);
-          }
-        })
-        .catch(function (err) {
-          console.log(err);
-        });
-    });
+        function successMessage() {
+          setInterval(function successMessage() {
+            inquiryModal.innerHTML = "Message sent";
+          }, 2000);
+        }
+        successMessage();
+      });
+  }
+
+  function checkLength(value, len) {
+    if (value.trim().length > len) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function validateEmail(email) {
+    const regEx = /\S+@\S+\.\S+/;
+    const patternMatches = regEx.test(email);
+    return patternMatches;
+  }
 }

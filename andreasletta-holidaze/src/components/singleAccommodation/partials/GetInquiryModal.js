@@ -21,23 +21,27 @@ export default function GetInquiryModal() {
         <Modal.Header closeButton>
           <Modal.Title>Send an inquiry</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body id="inquiryModal">
           <Form>
             <Form.Group className="mb-3" controlId="formName">
               <Form.Label>Name</Form.Label>
               <Form.Control type="text" placeholder="Name..." />
+              <Form.Text id="formNameMessage" muted></Form.Text>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" placeholder="Email..." />
+              <Form.Text id="formEmailMessage" muted></Form.Text>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formSubject">
               <Form.Label>Subject</Form.Label>
               <Form.Control type="text" placeholder="Subject..." />
+              <Form.Text id="formSubjectMessage" muted></Form.Text>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formMessage">
               <Form.Label>Message</Form.Label>
               <Form.Control type="text" placeholder="Message..." />
+              <Form.Text id="formMessageMessage" muted></Form.Text>
             </Form.Group>
             <Button variant="primary" type="submit" onClick={AddInquiry}>
               Submit
