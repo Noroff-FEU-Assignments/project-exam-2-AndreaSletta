@@ -1,0 +1,45 @@
+.navbar-collapse {
+  display: block;
+  .navbar-nav {
+    .nav-link,
+    .nav-link.active {
+      color: white;
+      &:hover {
+        text-decoration: underline;
+        color: black;
+      }
+    }
+  }
+  form {
+    .form-control {
+      border: 2px solid white;
+      border-radius: 0;
+      height: 25px;
+      &:after {
+        border: 2px solid white;
+      }
+    }
+  }
+}
+
+/* Media Query for Tablets*/
+@media only screen and (min-width: 767.98px) and (max-width: 991.98px) {
+  .navbar-collapse {
+    display: block;
+    form {
+      .form-control {
+        max-width: 300px;
+        display: block;
+      }
+    }
+  }
+}
+
+/* Media Query for Desktop*/
+@media (min-width: 922px) {
+  .navbar {
+    #navbarSupportedContent {
+      justify-content: end;
+    }
+  }
+}

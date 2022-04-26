@@ -1,6 +1,6 @@
 import Heading from "../layout/Heading";
-import { Breadcrumb, FormText } from "react-bootstrap";
-import GetAccommodationsList from "./utils/GetAccommodationsList";
+import { Breadcrumb } from "react-bootstrap";
+import GetAccommodationsList from "./partials/GetAccommodationsList";
 import Filter from "./partials/Filter";
 import Footer from "../layout/Footer";
 

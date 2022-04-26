@@ -11,7 +11,7 @@ import {
 
 export default function Footer() {
   return (
-    <Navbar className="navbar sticky-bottom navbar-light bg-light">
+    <footer className=" sticky-bottom bg-light">
       <Row xs={1} md={2}>
         <Col>
           <h3>Holidaze</h3>
@@ -87,6 +87,6 @@ export default function Footer() {
           </Row>
         </Col>
       </Row>
-    </Navbar>
+    </footer>
   );
 }

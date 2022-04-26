@@ -1,0 +1,49 @@
+.navbar {
+  min-height: 70px;
+  background-color: white;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  align-items: center;
+  #search-button {
+    right: 50px;
+    top: 2px;
+  }
+  #hamburger {
+    right: 0;
+  }
+}
+
+.navbar-toggler {
+  position: absolute;
+  top: 10px;
+  border: none;
+  &:focus {
+    box-shadow: none;
+  }
+}
+#nav-border {
+  width: 100%;
+  border-bottom: 2px solid;
+  margin: auto;
+}
+
+/* Media Query for Tablets*/
+@media only screen and (min-width: 767.98px) and (max-width: 991.98px) {
+}
+
+/* Media Query for Desktop*/
+@media (min-width: 922px) {
+  .navbar {
+    display: grid;
+    grid-template-columns: repeat(1, 4fr);
+    grid-gap: 0 20px;
+
+    #navbarSupportedContent {
+      form {
+        float: right;
+      }
+    }
+  }
+}
