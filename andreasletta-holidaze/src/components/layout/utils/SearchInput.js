@@ -42,13 +42,12 @@ export default function SearchInput() {
   if (error) {
     return <div className="text-warning">An error occured: {error}</div>;
   }
-
+  initialList = [accommodations];
   function RenderContent() {
-    initialList = [accommodations];
-    console.log(initialList);
-
-    if (initialList !== accommodations) {
-      console.log("unique");
+    if (initialList[0].length > 0) {
+      console.log(initialList[0].length);
+    } else {
+      console.log(initialList[0].length);
     }
     return (
       <>
@@ -78,7 +77,7 @@ export default function SearchInput() {
   function search() {
     const searchInput = document.querySelector("#search-input");
     const searchInputValue = searchInput.value.trim().toLowerCase();
-    console.log(searchInputValue);
+    // console.log(searchInputValue);
     const filteredAccommodations = accommodations.filter(function (
       accommodation
     ) {
@@ -90,22 +89,22 @@ export default function SearchInput() {
           .toLowerCase()
           .includes(searchInputValue)
       ) {
-        console.log(accommodation.attributes.name);
+        // console.log(accommodation.attributes.name);
 
         return true;
       } else {
         return false;
       }
     });
+    initialList = [filteredAccommodations];
     if (filteredAccommodations.length < 1) {
       console.log("no item to match search");
     } else {
       console.log("item match search");
     }
 
-    setAccommodations(filteredAccommodations);
     RenderContent();
-    console.log(filteredAccommodations.length);
+    // console.log(filteredAccommodations.length);
   }
 
   return (
