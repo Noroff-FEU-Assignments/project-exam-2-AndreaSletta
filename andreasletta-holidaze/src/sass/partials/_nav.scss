@@ -2,10 +2,13 @@
   min-height: 70px;
   background-color: white;
   z-index: 10;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100vw;
   align-items: center;
+  .nav-link {
+    padding-bottom: 0;
+  }
   #search-button {
     right: 50px;
     top: 2px;
@@ -27,6 +30,10 @@
   width: 100%;
   border-bottom: 2px solid;
   margin: auto;
+}
+
+.clear-header {
+  margin-top: 90px;
 }
 
 /* Media Query for Tablets*/

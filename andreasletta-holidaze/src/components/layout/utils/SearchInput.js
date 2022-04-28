@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { BASE_URL } from "../../../constants/api";
-import AccommodationItem from "../../accommodations/partials/AccommodationItem";
-import { ListGroup, Row } from "react-bootstrap";
+import { ListGroup, Row, Col, Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function SearchInput() {
   const [accommodations, setAccommodations] = useState([]);
@@ -42,42 +42,291 @@ export default function SearchInput() {
   if (error) {
     return <div className="text-warning">An error occured: {error}</div>;
   }
-  initialList = [accommodations];
+
   function RenderContent() {
-    if (initialList[0].length > 0) {
-      console.log(initialList[0].length);
-    } else {
-      console.log(initialList[0].length);
+    let data = "";
+
+    if (initialList.length === 0) {
+      // console.log(initialList.length, "no content");
+      data = <p className="text-info">no content</p>;
+    } else if (initialList.length > 0) {
+      console.log(initialList.length, "content");
+      data = <p className="text-info">content</p>;
+      if (initialList[0].length === 0) {
+        console.log(initialList[0], initialList[0].length, "no content");
+        data = <p>hi</p>;
+        console.log(data);
+        return <p className="text-info">no content</p>;
+      }
+
+      if (initialList[0].length === 1) {
+        console.log(initialList[0][0], initialList[0].length, "with 1 item");
+        data = (
+          <ListGroup id="searchResult">
+            <Row xs={1}>
+              <Col
+                className="p-0"
+                id={initialList[0][0].id}
+                key={initialList[0][0].id}
+              >
+                <ListGroup.Item>
+                  <Link
+                    className="link-info"
+                    to={`/accommodations/${initialList[0][0].id}`}
+                  >
+                    <Row>
+                      <Col className="col-4">
+                        <Card.Img
+                          variant="top"
+                          src={
+                            initialList[0][0].attributes.images.data[0]
+                              .attributes.url
+                          }
+                        />
+                      </Col>
+                      <Col className="col-8">
+                        <Row xs={1}>
+                          <Col>
+                            {" "}
+                            <Card.Title>
+                              {" "}
+                              {initialList[0][0].attributes.name}
+                            </Card.Title>
+                          </Col>
+
+                          <Col>
+                            <Card.Text>
+                              {" "}
+                              <i className="bi bi-house"></i>
+                              {initialList[0][0].attributes.type}
+                            </Card.Text>
+                          </Col>
+                          <Col>
+                            <Card.Text>
+                              {initialList[0][0].attributes.description.slice(
+                                0,
+                                100
+                              )}
+                              ...
+                            </Card.Text>
+                          </Col>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </Link>
+                </ListGroup.Item>
+              </Col>
+            </Row>
+          </ListGroup>
+        );
+      }
+      if (initialList[0].length > 1) {
+        console.log(initialList[0], initialList[0].length, "with many items");
+        data = (
+          <ListGroup id="searchResult">
+            <Row xs={1}>
+              {initialList[0].map(accommodation => {
+                return (
+                  <Col
+                    className="p-0"
+                    id={accommodation.id}
+                    key={accommodation.id}
+                  >
+                    <ListGroup.Item>
+                      <Link
+                        className="link-info"
+                        to={`/accommodations/${accommodation.id}`}
+                      >
+                        <Row>
+                          <Col className="col-4">
+                            <Card.Img
+                              variant="top"
+                              src={
+                                accommodation.attributes.images.data[0]
+                                  .attributes.url
+                              }
+                            />
+                          </Col>
+                          <Col className="col-8">
+                            <Row xs={1}>
+                              <Col>
+                                {" "}
+                                <Card.Title>
+                                  {" "}
+                                  {accommodation.attributes.name}
+                                </Card.Title>
+                              </Col>
+
+                              <Col>
+                                <Card.Text>
+                                  {" "}
+                                  <i className="bi bi-house"></i>
+                                  {accommodation.attributes.type}
+                                </Card.Text>
+                              </Col>
+                              <Col>
+                                <Card.Text>
+                                  {accommodation.attributes.description.slice(
+                                    0,
+                                    100
+                                  )}
+                                  ...
+                                </Card.Text>
+                              </Col>
+                            </Row>
+                          </Col>
+                        </Row>
+                      </Link>
+                    </ListGroup.Item>
+                  </Col>
+                );
+              })}
+            </Row>
+          </ListGroup>
+        );
+      }
+      return data;
     }
-    return (
-      <>
-        <ListGroup>
+    /*
+    if (initialList[0].length === 0) {
+      console.log(initialList[0], initialList[0].length, "no content");
+      return <p className="text-info">no content</p>;
+    }
+
+    if (initialList[0].length === 1) {
+      console.log(initialList[0][0], initialList[0].length, "with 1 item");
+      data = (
+        <ListGroup id="searchResult">
+          <Row xs={1}>
+            <Col
+              className="p-0"
+              id={initialList[0][0].id}
+              key={initialList[0][0].id}
+            >
+              <ListGroup.Item>
+                <Link
+                  className="link-info"
+                  to={`/accommodations/${initialList[0][0].id}`}
+                >
+                  <Row>
+                    <Col className="col-4">
+                      <Card.Img
+                        variant="top"
+                        src={
+                          initialList[0][0].attributes.images.data[0].attributes
+                            .url
+                        }
+                      />
+                    </Col>
+                    <Col className="col-8">
+                      <Row xs={1}>
+                        <Col>
+                          {" "}
+                          <Card.Title>
+                            {" "}
+                            {initialList[0][0].attributes.name}
+                          </Card.Title>
+                        </Col>
+
+                        <Col>
+                          <Card.Text>
+                            {" "}
+                            <i className="bi bi-house"></i>
+                            {initialList[0][0].attributes.type}
+                          </Card.Text>
+                        </Col>
+                        <Col>
+                          <Card.Text>
+                            {initialList[0][0].attributes.description.slice(
+                              0,
+                              100
+                            )}
+                            ...
+                          </Card.Text>
+                        </Col>
+                      </Row>
+                    </Col>
+                  </Row>
+                </Link>
+              </ListGroup.Item>
+            </Col>
+          </Row>
+        </ListGroup>
+      );
+    }
+    if (initialList[0].length > 1) {
+      console.log(initialList[0], initialList[0].length, "with many items");
+      data = (
+        <ListGroup id="searchResult">
           <Row xs={1}>
             {initialList[0].map(accommodation => {
               return (
-                <AccommodationItem
-                  key={accommodation.id}
+                <Col
+                  className="p-0"
                   id={accommodation.id}
-                  name={accommodation.attributes.name}
-                  image={accommodation.attributes.images.data[0].attributes.url}
-                  description={accommodation.attributes.description.slice(
-                    0,
-                    100
-                  )}
-                  type={accommodation.attributes.type}
-                />
+                  key={accommodation.id}
+                >
+                  <ListGroup.Item>
+                    <Link
+                      className="link-info"
+                      to={`/accommodations/${accommodation.id}`}
+                    >
+                      <Row>
+                        <Col className="col-4">
+                          <Card.Img
+                            variant="top"
+                            src={
+                              accommodation.attributes.images.data[0].attributes
+                                .url
+                            }
+                          />
+                        </Col>
+                        <Col className="col-8">
+                          <Row xs={1}>
+                            <Col>
+                              {" "}
+                              <Card.Title>
+                                {" "}
+                                {accommodation.attributes.name}
+                              </Card.Title>
+                            </Col>
+
+                            <Col>
+                              <Card.Text>
+                                {" "}
+                                <i className="bi bi-house"></i>
+                                {accommodation.attributes.type}
+                              </Card.Text>
+                            </Col>
+                            <Col>
+                              <Card.Text>
+                                {accommodation.attributes.description.slice(
+                                  0,
+                                  100
+                                )}
+                                ...
+                              </Card.Text>
+                            </Col>
+                          </Row>
+                        </Col>
+                      </Row>
+                    </Link>
+                  </ListGroup.Item>
+                </Col>
               );
             })}
           </Row>
         </ListGroup>
-      </>
-    );
+      );
+    }
+*/
+    //console.log(data);
+    return data;
   }
 
   function search() {
     const searchInput = document.querySelector("#search-input");
     const searchInputValue = searchInput.value.trim().toLowerCase();
-    // console.log(searchInputValue);
     const filteredAccommodations = accommodations.filter(function (
       accommodation
     ) {
@@ -89,22 +338,14 @@ export default function SearchInput() {
           .toLowerCase()
           .includes(searchInputValue)
       ) {
-        // console.log(accommodation.attributes.name);
-
         return true;
-      } else {
-        return false;
       }
     });
-    initialList = [filteredAccommodations];
-    if (filteredAccommodations.length < 1) {
-      console.log("no item to match search");
-    } else {
-      console.log("item match search");
-    }
+    initialList = filteredAccommodations;
+
+    //console.log(accommodations, initialList, filteredAccommodations);
 
     RenderContent();
-    // console.log(filteredAccommodations.length);
   }
 
   return (
@@ -118,7 +359,7 @@ export default function SearchInput() {
           id="search-input"
           onKeyUp={search}
         />
-        <RenderContent id="searchResult" />
+        <RenderContent />
       </Row>
     </>
   );

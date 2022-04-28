@@ -6,15 +6,16 @@ import {
   Route,
   NavLink,
 } from "react-router-dom";
-
 import Container from "react-bootstrap/Container";
 import Home from "../home/Home";
 import Accommodations from "../accommodations/Accommodations";
 import SingleAccommodation from "../singleAccommodation/SingleAccommodation";
 import ContactUs from "../contactUs/ContactUs";
-import AdminHome from "../adminHome/AdminHome";
+import Admin from "../admin/Admin";
 import SearchInput from "./utils/SearchInput";
-import SearchContent from "./utils/SearchContent";
+import AdminCreateEstablishment from "../adminCreateEstablishment/AdminCreateEstablishment";
+import AdminEnquiries from "../adminEnquiries/AdminEnquiries";
+import AdminMessages from "../adminMessages/AdminMessages";
 
 export default function CreateNavbar() {
   return (
@@ -89,7 +90,13 @@ export default function CreateNavbar() {
           <Route path="/accommodations" element={<Accommodations />} />
           <Route path="/accommodations/:id" element={<SingleAccommodation />} />
           <Route path="/contactus" element={<ContactUs />} />
-          <Route path="/adminhome" element={<AdminHome />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/enquiries" element={<AdminEnquiries />} />
+          <Route path="/messages" element={<AdminMessages />} />
+          <Route
+            path="/createestablishment"
+            element={<AdminCreateEstablishment />}
+          />
         </Routes>
       </Container>
     </Router>

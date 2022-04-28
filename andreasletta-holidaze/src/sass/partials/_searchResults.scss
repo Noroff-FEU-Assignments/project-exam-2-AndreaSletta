@@ -1,0 +1,14 @@
+#searchResult {
+  .row {
+    .col {
+      .list-group-item {
+        background-color: red;
+        .link-info .card {
+          img {
+            height: 30px;
+          }
+        }
+      }
+    }
+  }
+}
