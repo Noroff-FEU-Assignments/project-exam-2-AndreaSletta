@@ -1,16 +1,14 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { BASE_URL } from "../../../constants/api";
-import { getToken, getUsername } from "../../admin/utils/Storage";
+import { getToken } from "../../admin/utils/Storage";
 import { Row, ListGroup, Col, Card, Button, Accordion } from "react-bootstrap";
 import { format } from "date-fns";
 const token = getToken();
 
-const username = getUsername();
+const url = BASE_URL + "messages";
 
-const url = BASE_URL + "enquiries";
-
-export default function GetEnguiries() {
+export default function GetMessages() {
   const [enquiries, setEnquiries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -19,7 +17,7 @@ export default function GetEnguiries() {
     function () {
       async function fetchData() {
         try {
-          const response = await axios.get(`${BASE_URL}enquiries`, {
+          const response = await axios.get(`${BASE_URL}messages`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },

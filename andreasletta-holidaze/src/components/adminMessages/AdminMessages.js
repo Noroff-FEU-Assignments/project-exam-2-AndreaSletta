@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import AdminNavbar from "../layout/AdminNavbar";
 import Heading from "../layout/Heading";
 import AdminFooter from "../layout/AdminFooter";
+import GetMessages from "./utils/GetMessages";
 
 const username = getUsername();
 
@@ -14,6 +15,7 @@ export default function AdminMessages() {
         <AdminNavbar />
         <Container className="clear-header">
           <Heading title={"Messages"} />
+          <GetMessages />
         </Container>
         <AdminFooter />
       </>
