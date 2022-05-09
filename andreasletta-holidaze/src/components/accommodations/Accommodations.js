@@ -12,7 +12,7 @@ export default function Accommodations() {
         <Breadcrumb.Item active>Accomodations</Breadcrumb.Item>
       </Breadcrumb>
       <Heading title="Accomodations" />
-      <Filter />
+
       <GetAccommodationsList />
       <Footer />
     </>

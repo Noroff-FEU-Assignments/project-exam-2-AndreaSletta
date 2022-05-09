@@ -1,31 +1,48 @@
 .navbar {
-  min-height: 70px;
-  background-color: white;
+  height: 70px;
+  background-color: black;
   z-index: 10;
   position: fixed;
   top: 0;
   width: 100vw;
   align-items: center;
+
+  a {
+    color: transparent;
+    text-align: center;
+    font-family: gimlet-micro-condensed, serif;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    align-content: center;
+    #logo {
+      padding-left: 1em;
+    }
+  }
+  .navbar-collapse {
+    background-color: black;
+  }
+
+  .navbar-toggler {
+    position: absolute;
+
+    border: none;
+    &:focus {
+      box-shadow: none;
+    }
+  }
   .nav-link {
     padding-bottom: 0;
   }
   #search-button {
     right: 50px;
-    top: 2px;
   }
   #hamburger {
     right: 0;
+    padding-right: 1em;
   }
 }
 
-.navbar-toggler {
-  position: absolute;
-  top: 10px;
-  border: none;
-  &:focus {
-    box-shadow: none;
-  }
-}
 #nav-border {
   width: 100%;
   border-bottom: 2px solid;
@@ -33,7 +50,7 @@
 }
 
 .clear-header {
-  margin-top: 90px;
+  padding-top: 90px;
 }
 
 /* Media Query for Tablets*/
@@ -44,13 +61,41 @@
 @media (min-width: 922px) {
   .navbar {
     display: grid;
-    grid-template-columns: repeat(1, 4fr);
-    grid-gap: 0 20px;
-
-    #navbarSupportedContent {
-      form {
-        float: right;
+    grid-template-columns: repeat(3, 1fr);
+    a {
+      #logo {
+        text-align: left;
+        padding-left: 2em;
       }
+    }
+
+    .navbar-toggler {
+      display: block;
+    }
+    #search-bar {
+      order: 3;
+    }
+    #search-button {
+      right: 0;
+      padding-right: 2em;
+    }
+
+    #search-bar:not(.show) {
+      background-color: rebeccapurple;
+      //display: none !important;
+
+      transition: ease-in-out all 0.5s;
+    }
+    #search-bar.show {
+      background-color: green;
+      display: block !important;
+      transition: all 0.5s;
+    }
+  }
+
+  #navbarSupportedContent {
+    form {
+      float: right;
     }
   }
 }

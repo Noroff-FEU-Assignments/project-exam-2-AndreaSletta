@@ -12,7 +12,7 @@ import {
 export default function Footer() {
   return (
     <footer className=" sticky-bottom bg-light">
-      <Row xs={1} md={2}>
+      <Row xs={1} md={2} className="m-0">
         <Col>
           <h3>Holidaze</h3>
         </Col>{" "}

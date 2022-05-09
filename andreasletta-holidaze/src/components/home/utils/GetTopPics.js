@@ -46,34 +46,34 @@ function GetTopPics() {
   return (
     <>
       <ListGroup>
-        <Row xs={1} md={2} lg={4}>
+        <Row xs={1} md={2} lg={4} className="m-0 ">
           {accommodations.map(accommodation => {
             if (accommodation.attributes.featured === true) {
               return (
                 <Col key={accommodation.id} className="p-0">
-                  <ListGroup.Item>
+                  <ListGroup.Item className="px-0 py-4 px-md-4">
                     <Link
-                      className="link-info"
+                      className="link-dark text-decoration-none"
                       to={`/accommodations/${accommodation.id}`}
                     >
-                      <Card>
+                      <Card className="shadow">
                         <Card.Img
+                          className="rounded-0"
                           variant="top"
                           src={
                             accommodation.attributes.images.data[0].attributes
                               .url
                           }
                         />
-                        <Card.Body>
+                        <Card.Body className="p-4">
                           <Card.Title>
-                            {" "}
-                            {accommodation.attributes.name}
+                            <h3>{accommodation.attributes.name}</h3>
                           </Card.Title>
                           <Card.Text>
                             {accommodation.attributes.description.slice(0, 100)}
                             ...
                           </Card.Text>
-                          <Button variant="primary">Read more</Button>
+                          <Button variant="outline-primary">Read more</Button>
                         </Card.Body>
                       </Card>
                     </Link>

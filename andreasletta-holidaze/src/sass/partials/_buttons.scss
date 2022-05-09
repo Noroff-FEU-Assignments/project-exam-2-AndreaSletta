@@ -1,0 +1,15 @@
+// Primary button
+
+.btn-outline-primary {
+  border-color: black;
+  color: black;
+  border-radius: 0;
+  border-width: 2px;
+  transition: all 0.5s;
+  &:hover {
+    border-color: black;
+    background-color: black;
+    color: white;
+    transition: all 0.5s;
+  }
+}

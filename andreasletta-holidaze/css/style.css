@@ -9,7 +9,8 @@ p {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-family: gimlet-micro-condensed, serif;
   font-weight: 400;
   font-style: normal;
@@ -31,7 +32,7 @@ img {
   min-height: 70px;
   background-color: white;
   z-index: 10;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100vw;
   -webkit-box-align: center;
@@ -39,30 +40,48 @@ img {
           align-items: center;
 }
 
+.navbar a {
+  color: transparent;
+}
+
+.navbar a .navbar-brand #logo {
+  font-family: gimlet-micro-condensed, serif;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.navbar .navbar-toggler {
+  position: absolute;
+  top: 10px;
+  border: none;
+}
+
+.navbar .navbar-toggler:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.navbar .nav-link {
+  padding-bottom: 0;
+}
+
 .navbar #search-button {
   right: 50px;
-  top: 2px;
 }
 
 .navbar #hamburger {
   right: 0;
 }
 
-.navbar-toggler {
-  position: absolute;
-  top: 10px;
-  border: none;
-}
-
-.navbar-toggler:focus {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
 #nav-border {
   width: 100%;
   border-bottom: 2px solid;
   margin: auto;
+}
+
+.clear-header {
+  padding-top: 90px;
 }
 
 /* Media Query for Tablets*/
@@ -177,7 +196,37 @@ img {
   }
 }
 
-#searchResult {
+#searchResult .row .col .list-group-item {
   background-color: red;
 }
+
+#searchResult .row .col .list-group-item .link-info .card img {
+  height: 30px;
+}
+
+.above-fold {
+  height: 100vh;
+}
+
+.above-fold .row {
+  height: 100%;
+}
+
+.above-fold .row .col1 .row {
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+}
+
+.above-fold .row .col1 .row img {
+  padding-right: 3em;
+  padding-left: 0;
+}
+
+.top-picks .list-group .row .col .list-group-item {
+  background-color: transparent;
+  border: transparent;
+}
+
+/* Media Query for Tablets*/
+/* Media Query for Desktop*/
 /*# sourceMappingURL=style.css.map */

@@ -1,6 +1,8 @@
 import { getToken } from "../../admin/utils/Storage";
 import { BASE_URL } from "../../../constants/api";
 import axios from "axios";
+import { useState, useEffect } from "react";
+import UploadAccomodation from "./UploadAccomodation";
 const token = getToken();
 
 export default function CreateEstablishment(event) {
@@ -124,7 +126,7 @@ export default function CreateEstablishment(event) {
   }
 
   //validate form and display errors
-  /*
+
   if (checkLength(formName.value, 0)) {
     formNameMessage.innerHTML = "Valid name";
   } else {
@@ -142,14 +144,14 @@ export default function CreateEstablishment(event) {
     formPriceMessage.innerHTML = "Please enter your name";
   }
   if (checkLength(formFeatured.value, 0)) {
-    formFeaturedMessage.innerHTML = "Valid name";
+    formFeaturedMessage.innerHTML = `<i class="fa fa-solid fa-check">Valid name</i>`;
   } else {
-    formFeaturedMessage.innerHTML = "Please enter your name";
+    formFeaturedMessage.innerHTML = `<i class="fa fa-solid fa-x">"Please enter your name"</i>`;
   }
   if (checkLength(formDescription.value, 0)) {
     formDescriptionMessage.innerHTML = "Valid name";
   } else {
-    formDescriptionMessage.innerHTML = "Please enter your name";
+    formDescriptionMessage.innerHTML = `<i class="fa fa-solid fa-x">Please enter your name</i>`;
   }
   if (checkLength(formType.value, 0)) {
     formTypeMessage.innerHTML = "Valid name";
@@ -174,227 +176,41 @@ export default function CreateEstablishment(event) {
     formImage3Message.innerHTML = "Please enter your name";
   }
 
-  console.log(`${BASE_URL}accommodations`);
-*/
-  /*
   //If form vaild, send
   if (
     checkLength(formName.value, 0) &&
     checkLength(formAddress.value, 0) &&
-    checkLength(formPrice.value), 0) &&
+    checkLength(formPrice.value, 0) &&
     checkLength(formFeatured.value, 0) &&
     checkLength(formDescription.value, 0) &&
-    checkLength(formType.value, 0)
+    checkLength(formType.value, 0) &&
+    checkLength(formImage1.value, 0) &&
+    checkLength(formImage2.value, 0) &&
+    checkLength(formImage3.value, 0)
   ) {
-    const data = JSON.stringify({
-      name: `${nameValue}`,
-      address: `${addressValue}`,
-      price: `${priceValue}`,
-      featured: `${featuredValue}`,
-      description: `${descriptionValue}`,
-      type: `${typeValue}`,
-    });
-
-    axios
-      .post(`${BASE_URL}accommodations`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        data: {
-          data,
-        },
-      })
-      .then(response => {
-        console.log(response, "posted");
-        /*
-        function successMessage() {
-          setInterval(function successMessage() {
-            addMessageContainer.innerHTML = "Message sent";
-          }, 2000);
-        }
-        successMessage();
-      })
-    
-  };*/
-  addAccomodation(
-    nameValue,
-    addressValue,
-    priceValue,
-    featuredValue,
-    descriptionValue,
-    typeValue,
-    image1Value,
-    image2Value,
-    image3Value,
-    floyenValue,
-    museumValue,
-    lysverketValue,
-    sjobadValue,
-    fjordsightseeingValue,
-    skostredetValue
-  );
-}
-
-async function addAccomodation(
-  name,
-  address,
-  price,
-  featured,
-  description,
-  type,
-  image1,
-  image2,
-  image3,
-  floyen,
-  museum,
-  lysverket,
-  sjobad,
-  fjordsightseeing,
-  skostredet
-) {
-  const uploadUrl = BASE_URL + "upload";
-  const productUrl = BASE_URL + "accommodations";
-  /*
-  const uploadByUrl = async () => {
-    URL = image1; // <- image url
-    fetch(URL)
-      .then(response => response.blob())
-      .then(function (myBlob) {
-        const formData = new FormData();
-        formData.append("files", myBlob);
-        console.log(formData);
-        fetch(uploadUrl, {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          body: formData,
-        })
-          .then(response => {
-            const result = response.json();
-            console.log("result", result);
-          })
-          .catch(function (err) {
-            console.log("error:");
-            console.log(err);
-          });
-      });
-  };
-  uploadByUrl(); 
-*/
-
-  fetch(image1)
-    .then(response => response.blob())
-    .then(function (myBlob) {
-      const formData = new FormData();
-      console.log(formData);
-      formData.append("files", myBlob);
-      console.log(myBlob, formData);
-      console.log(Object.keys(formData));
-
-      fetch(uploadUrl, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: formData,
-      })
-        .then(response => response.json())
-        .then(result => {
-          //const imageId = result[0].id;
-          console.log(result);
-        })
-        .catch(function (err) {
-          console.log("error:", err);
-        }); /*
-      axios
-        .post(uploadUrl, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          data: formData,
-        })
-        .then(response => response.json())
-        .then(result => {
-          const imageId = result[0].id;
-          console.log(result);
-        })
-        .catch(function (err) {
-          console.log("error:", err);
-        });*/ /*
-    });
-
-  /*
-
-  /*
-  /*
-  fetch(image1)
-    .then(response => response.blob())
-    .then(function (myBlob) {
-      const formData = new FormData();
-      formData.append("files", myBlob);
-
-      //Upload the image to strapi
-      fetch(uploadUrl, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: formData,
-      })
-        .then(response => response.json())
-        .then(result => {
-          const imageId1 = result[0].id;
-
-          const data = JSON.stringify({
-            name: name,
-            address: address,
-            price: price,
-         
-            featured: featured,
-            description: description,
-            type: type,
-            image1: imageId1,
-            image2: imageId2,
-            image3: imageId3,
-            floyen: floyen,
-            museum: museum,
-            lysverket: lysverket,
-            sjobad: sjobad,
-            fjordsightseeing: fjordsightseeing,
-            skostredet: skostredet,
-          });
-
-          // Upload new product
-          const options = {
-            method: "POST",
-            body: data,
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          };
-          try {
-            fetch(productUrl, options).then(response => {
-              console.log("<h2>Product added</h2>");
-
-              /*
-              function reload() {
-                setTimeout(function () {
-                  location.reload();
-                }, 3000);
-              }
-              reload();*/
-      /*
-            });
-          } catch (error) {
-            console.log(error);
-            console.log("<h2>Upload failed</h2>");
-          }
-        })
-        .catch(function (err) {
-          console.log(err);
-          console.log("`<h2>Upload failed</h2> ");
-        });*/
-    });
+    UploadAccomodation(
+      nameValue,
+      addressValue,
+      priceValue,
+      featuredValue,
+      descriptionValue,
+      typeValue,
+      image1Value,
+      image2Value,
+      image3Value,
+      breakfastValue,
+      gymValue,
+      internettValue,
+      parkingValue,
+      petValue,
+      resturantValue,
+      poolValue,
+      floyenValue,
+      museumValue,
+      lysverketValue,
+      sjobadValue,
+      fjordsightseeingValue,
+      skostredetValue
+    );
+  }
 }

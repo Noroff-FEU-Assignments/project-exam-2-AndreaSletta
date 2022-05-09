@@ -21,12 +21,11 @@ export default function CreateNavbar() {
   return (
     <Router>
       <Navbar
-        bg="dark"
         variant="dark"
         expand="lg"
         sticky="top"
-        className="px-3"
         id="navbar"
+        className="py-0"
       >
         <NavLink to="/">
           <Navbar.Brand>
@@ -47,7 +46,7 @@ export default function CreateNavbar() {
           <i className="bi bi-search"></i>
         </button>
         <div className="collapse navbar-collapse" id="search-bar">
-          <form className="d-flex py-3">
+          <form className="d-flex py-3 py-lg-0">
             <SearchInput />
           </form>
         </div>
@@ -68,23 +67,23 @@ export default function CreateNavbar() {
 
         <Navbar.Collapse
           id="basic-navbar-nav"
-          className="justify-content-md-center"
+          className="justify-content-md-center py-4 py-lg-0 "
         >
           <Nav className="mr-auto">
-            <NavLink to="/" className="nav-link">
+            <NavLink to="/" className="nav-link py-2 fs-6 text">
               Home
             </NavLink>
-            <NavLink to="/accommodations" className="nav-link">
+            <NavLink to="/accommodations" className="nav-link py-2 fs-6 text">
               Accommodations
             </NavLink>
-            <NavLink to="/contactus" className="nav-link">
+            <NavLink to="/contactus" className="nav-link py-2 fs-6 text">
               Contact us
             </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
 
-      <Container className="p-0">
+      <Container className="p-0 m-0">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/accommodations" element={<Accommodations />} />
