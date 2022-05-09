@@ -45,6 +45,43 @@ function GetAccommodationsList() {
   }
 
   //
+  const qs = require("qs");
+  const query = qs.stringify(
+    {
+      filters: {
+        type: {
+          $in: "Hotel",
+        },
+        facilities: {
+          Parking_available: {
+            $eq: true,
+          },
+        },
+      },
+    },
+    {
+      encodeValuesOnly: true, // prettify url
+    }
+  );
+  console.log(query);
+  async function filteredContent() {
+    try {
+      const response = await fetch(BASE_URL + `accommodations?${query}`);
+
+      if (response.ok) {
+        const json = await response.json();
+        console.log(json.data);
+        //setAccommodations(json.data);
+      } else {
+        setError("An error occured");
+      }
+    } catch (error) {
+      setError(error.toString());
+    } finally {
+      setLoading(false);
+    }
+  }
+  filteredContent();
 
   const initialList = [accommodations];
 
