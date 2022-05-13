@@ -1,0 +1,126 @@
+//first container
+
+.above-fold {
+  height: 100vh;
+
+  .row {
+    height: 100%;
+    overflow: hidden;
+    justify-content: space-between;
+
+    .col1 {
+      .row {
+        align-content: space-between;
+      }
+      img {
+      }
+    }
+    .col2 {
+      justify-content: flex-end;
+      align-items: flex-end;
+      img {
+        height: 750px;
+      }
+    }
+  }
+}
+
+//second container
+
+.top-picks {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  .list-group .row {
+    .col {
+      .list-group-item {
+        background-color: transparent;
+        border: transparent;
+
+        a {
+          .card {
+            height: 480px;
+            // transition: all ease-in-out 0.3s;
+            &:hover {
+              // transform: scale(1.05);
+              // transition: all ease-in-out 0.3s;
+            }
+            img {
+              height: 230px;
+              width: 100%;
+              object-fit: cover;
+            }
+            div {
+              button {
+                position: absolute;
+                bottom: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//third container
+.home-information {
+  .row {
+    justify-content: space-between;
+    .col {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+/* Media Query for Tablets*/
+@media only screen and (min-width: 767.98px) and (max-width: 991.98px) {
+}
+
+/* Media Query for Desktop*/
+@media (min-width: 922px) {
+  //First container
+  .above-fold .row {
+    .col1 {
+      height: 100%;
+      .col:first-of-type {
+        max-width: 400px;
+      }
+      .col:last-of-type {
+        height: 60%;
+        display: flex;
+        align-items: flex-end;
+        img {
+          height: 100%;
+        }
+      }
+    }
+    .col2 {
+      height: 100%;
+      img {
+        height: 90%;
+      }
+    }
+  }
+
+  //second container
+
+  .top-picks {
+    .list-group-item {
+      a {
+        .card {
+        }
+      }
+    }
+  }
+
+  //Third container
+  .home-information {
+    .row {
+      justify-content: space-between;
+      .col {
+        max-width: 350px;
+      }
+    }
+  }
+}

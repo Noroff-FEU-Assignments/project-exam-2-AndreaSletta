@@ -1,0 +1,41 @@
+footer {
+  background-color: white;
+  font-size: 12px;
+  text-align: center;
+  .nav-link {
+    color: black;
+    &:hover {
+      text-decoration: underline;
+    }
+    i {
+      font-size: 25px;
+    }
+  }
+  .row {
+    p,
+    input,
+    button {
+      font-size: 12px;
+    }
+    .col {
+      display: flex;
+      justify-content: center;
+      .row {
+        .col:first-of-type {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+  }
+  .footer-icons {
+    justify-content: space-around;
+    .col {
+      padding: 0;
+      a {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+}

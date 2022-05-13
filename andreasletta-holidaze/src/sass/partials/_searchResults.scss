@@ -1,0 +1,43 @@
+#searchResult {
+  overflow-y: scroll;
+  max-height: 400px;
+  border-radius: 0;
+  .row {
+    .col {
+      .list-group-item {
+        a {
+          color: black;
+          text-decoration: none;
+          text-align: left;
+          height: auto;
+        }
+        .link-info {
+          img {
+            height: 100%;
+            border-radius: 0;
+            max-height: 150px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Media Query for Tablets*/
+@media only screen and (min-width: 767.98px) and (max-width: 991.98px) {
+}
+
+/* Media Query for Desktop*/
+@media (min-width: 922px) {
+  #searchResult {
+    max-height: 800px;
+    .row {
+      .col {
+        .list-group-item {
+          a {
+          }
+        }
+      }
+    }
+  }
+}
