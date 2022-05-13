@@ -3,3 +3,17 @@ input,
   border: solid black 2px;
   border-radius: 0;
 }
+
+.filter {
+  border: none;
+
+  .form-check-input[type="checkbox"] {
+    border: solid 2px black;
+    border-radius: 0;
+    background-color: transparent;
+    color: black;
+  }
+  .form-check-input:checked[type="checkbox"] {
+    background-color: black;
+  }
+}

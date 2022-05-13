@@ -37,3 +37,19 @@ footer {
     border-bottom: transparent;
   }
 }
+
+.filter {
+  .btn-outline-primary.dropdown-toggle.show,
+  .btn-outline-primary:active {
+    background-color: black;
+    border-color: black;
+    box-shadow: none;
+    color: white;
+  }
+  .dropdown-toggle::after {
+    content: none;
+  }
+  .dropdown-toggle::before {
+    content: "\f0b0";
+  }
+}

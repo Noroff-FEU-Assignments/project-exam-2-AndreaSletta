@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { BASE_URL } from "../../../constants/api";
 import { ListGroup } from "react-bootstrap";
-import { Row } from "react-bootstrap";
+import { Row, Container } from "react-bootstrap";
 import AccommodationItem from "./AccommodationItem";
 import { InputGroup, Dropdown, DropdownButton, Button } from "react-bootstrap";
 
@@ -168,148 +168,177 @@ function GetAccommodationsList() {
 
   return (
     <>
-      <InputGroup className="mb-3">
+      <InputGroup className="mb-3 filter  ">
         <DropdownButton
-          variant="outline-secondary"
-          title="Dropdown"
+          variant="outline-primary"
+          title="Filter"
           id="input-group-dropdown-1"
         >
-          <h4>Facilities</h4>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value=""
-            id="Breakfast_included"
-            onChange={filterBreakfast}
-          />
-          <label className="form-check-label" htmlFor="Breakfast_included">
-            Breakfast included
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value=""
-            id="Gym"
-            onChange={filterGym}
-          />
-          <label className="form-check-label" htmlFor="Gym">
-            Gym
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value=""
-            id="Internett"
-            onChange={filterInternett}
-          />
-          <label className="form-check-label" htmlFor="Internett">
-            Internett
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value=""
-            id="Parking_available"
-            onChange={filterParking}
-          />
-          <label className="form-check-label" htmlFor="Parking_available">
-            Parking available
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value=""
-            id="Pet_friendly"
-            onChange={filterPet}
-          />
-          <label className="form-check-label" htmlFor="Pet_friendly">
-            Pet friendly
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value=""
-            id="Pool"
-            onChange={filterPool}
-          />
-          <label className="form-check-label" htmlFor="Pool">
-            Pool
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value=""
-            id="Resturant"
-            onChange={filterResturant}
-          />
-          <label className="form-check-label" htmlFor="Resturant">
-            Resturant
-          </label>
+          <p className="fw-bold m-0">Facilities</p>
+          <Container className="px-0  ">
+            <input
+              className="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Breakfast_included"
+              onChange={filterBreakfast}
+            />
+            <label className="form-check-label" htmlFor="Breakfast_included">
+              Breakfast included
+            </label>
+          </Container>
+          <Container className="px-0">
+            <input
+              className="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Gym"
+              onChange={filterGym}
+            />
+            <label className="form-check-label" htmlFor="Gym">
+              Gym
+            </label>{" "}
+          </Container>
+          <Container className="px-0">
+            <input
+              className="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Internett"
+              onChange={filterInternett}
+            />
+            <label className="form-check-label" htmlFor="Internett">
+              Internett
+            </label>{" "}
+          </Container>
+          <Container className="px-0">
+            <input
+              className="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Parking_available"
+              onChange={filterParking}
+            />
+            <label className="form-check-label" htmlFor="Parking_available">
+              Parking available
+            </label>{" "}
+          </Container>
+          <Container className="px-0">
+            <input
+              className="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Pet_friendly"
+              onChange={filterPet}
+            />
+            <label className="form-check-label" htmlFor="Pet_friendly">
+              Pet friendly
+            </label>{" "}
+          </Container>
+          <Container className="px-0">
+            <input
+              className="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Pool"
+              onChange={filterPool}
+            />
+            <label className="form-check-label" htmlFor="Pool">
+              Pool
+            </label>{" "}
+          </Container>
+          <Container className="px-0">
+            <input
+              className="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Resturant"
+              onChange={filterResturant}
+            />
+            <label className="form-check-label" htmlFor="Resturant">
+              Resturant
+            </label>{" "}
+          </Container>
+
           <Dropdown.Divider />
-          <h4>Type of accommodations</h4>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value=""
-            id="Hotel"
-            onChange={filterHotel}
-          />
-          <label className="form-check-label" htmlFor="Hotel">
-            Hotel
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value=""
-            id="Cabin"
-            onChange={filterCabin}
-          />
-          <label className="form-check-label" htmlFor="Cabin">
-            Cabin
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value=""
-            id="Guesthouse"
-            onChange={filterGuesthouse}
-          />
-          <label className="form-check-label" htmlFor="Guesthouse">
-            Guesthouse
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value=""
-            id="Hostel"
-            onChange={filterHostel}
-          />
-          <label className="form-check-label" htmlFor="Hostel">
-            Hostel
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value=""
-            id="B&Bs
+          <p className="fw-bold m-0">Type of accommodations</p>
+
+          <Container className="px-0">
+            <input
+              className="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Hotel"
+              onChange={filterHotel}
+            />
+            <label className="form-check-label" htmlFor="Hotel">
+              Hotel
+            </label>{" "}
+          </Container>
+          <Container className="px-0">
+            <input
+              className="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Cabin"
+              onChange={filterCabin}
+            />
+            <label className="form-check-label" htmlFor="Cabin">
+              Cabin
+            </label>{" "}
+          </Container>
+          <Container className="px-0">
+            <input
+              className="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Guesthouse"
+              onChange={filterGuesthouse}
+            />
+            <label className="form-check-label" htmlFor="Guesthouse">
+              Guesthouse
+            </label>{" "}
+          </Container>
+          <Container className="px-0">
+            <input
+              className="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Hostel"
+              onChange={filterHostel}
+            />
+            <label className="form-check-label" htmlFor="Hostel">
+              Hostel
+            </label>{" "}
+          </Container>
+          <Container className="px-0">
+            <input
+              className="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="B&Bs
           "
-            onChange={filterBnBs}
-          />
-          <label className="form-check-label" htmlFor="B&Bs">
-            B&Bs
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value=""
-            id="Apartment"
-            onChange={filterApartment}
-          />
-          <label className="form-check-label" htmlFor="Apartment">
-            Apartment
-          </label>{" "}
+              onChange={filterBnBs}
+            />
+            <label className="form-check-label" htmlFor="B&Bs">
+              B&Bs
+            </label>{" "}
+          </Container>
+          <Container className="px-0">
+            <input
+              className="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Apartment"
+              onChange={filterApartment}
+            />
+            <label className="form-check-label" htmlFor="Apartment">
+              Apartment
+            </label>{" "}
+          </Container>
+
           <Dropdown.Divider />
-          <Button variant="primary" onClick={filteredContent}>
+          <Button variant="outline-primary" onClick={filteredContent}>
             Use filter
           </Button>
         </DropdownButton>

@@ -39,3 +39,33 @@ footer {
     }
   }
 }
+
+/* Media Query for Tablets*/
+@media only screen and (min-width: 767.98px) and (max-width: 991.98px) {
+  footer {
+    .row {
+      .col {
+        .row {
+          .col:first-child {
+            align-items: flex-start;
+
+            a {
+              text-align: left;
+              padding-left: 1rem;
+            }
+            .footer-icons .col {
+              padding-left: calc(var(--bs-gutter-x) * 0.5);
+              a {
+                text-align: left;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Media Query for Desktop*/
+@media (min-width: 922px) {
+}

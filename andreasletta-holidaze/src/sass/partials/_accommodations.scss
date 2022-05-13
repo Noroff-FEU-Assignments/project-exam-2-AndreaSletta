@@ -1,0 +1,25 @@
+.list-group {
+  max-width: 1200px;
+  margin: auto;
+  .row {
+    .col {
+      .list-group-item {
+        height: 100%;
+        border: none;
+        border-radius: 0;
+        background-color: transparent;
+
+        .link-info {
+          .card {
+            height: 100%;
+            border: none;
+            border-radius: 0;
+            img {
+              height: 250px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

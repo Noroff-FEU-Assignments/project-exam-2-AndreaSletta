@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function AccommodationItem({ id, image, name, description, type }) {
   return (
     <Col className="p-0" id={id}>
-      <ListGroup.Item>
+      <ListGroup.Item className="py-4">
         <Link className="link-info" to={`/accommodations/${id}`}>
           <Card>
             <Card.Img variant="top" src={image} />

@@ -31,14 +31,22 @@
   margin-top: 20px;
   margin-bottom: 20px;
   .list-group .row {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
     .col {
+      height: 100%;
       .list-group-item {
         background-color: transparent;
         border: transparent;
+        height: 100%;
 
         a {
+          height: 100%;
           .card {
-            height: 480px;
+            height: 100%;
+            max-width: 400px;
+            margin: auto;
+            // height: 480px;
             // transition: all ease-in-out 0.3s;
             &:hover {
               // transform: scale(1.05);
@@ -50,9 +58,11 @@
               object-fit: cover;
             }
             div {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
               button {
-                position: absolute;
-                bottom: 20px;
+                width: fit-content;
               }
             }
           }
@@ -75,6 +85,16 @@
 
 /* Media Query for Tablets*/
 @media only screen and (min-width: 767.98px) and (max-width: 991.98px) {
+  //second container
+
+  .top-picks {
+    .list-group .row {
+      grid-template-columns: repeat(2, 1fr);
+      .col {
+        width: 100%;
+      }
+    }
+  }
 }
 
 /* Media Query for Desktop*/
@@ -106,9 +126,17 @@
   //second container
 
   .top-picks {
-    .list-group-item {
-      a {
-        .card {
+    .list-group .row {
+      grid-template-columns: repeat(4, 1fr);
+      .col {
+        width: 100%;
+        .list-group-item {
+          height: 100%;
+          a {
+            .card {
+              height: 100%;
+            }
+          }
         }
       }
     }
