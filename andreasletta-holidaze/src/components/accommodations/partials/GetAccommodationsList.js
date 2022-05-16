@@ -92,7 +92,7 @@ function GetAccommodationsList() {
 
   //types
   function filterHotel(event) {
-    if (event.target.checked == true) {
+    if (event.target.checked === true) {
       console.log("yes");
       accTypes.push({ $contains: "Hotel" });
     } else {
@@ -344,7 +344,7 @@ function GetAccommodationsList() {
         </DropdownButton>
       </InputGroup>
       <ListGroup>
-        <Row xs={1} md={2} lg={4} className="m-0">
+        <Row xs={1} md={2} lg={5} className="m-0">
           {initialList[0].map(accommodation => {
             return (
               <AccommodationItem

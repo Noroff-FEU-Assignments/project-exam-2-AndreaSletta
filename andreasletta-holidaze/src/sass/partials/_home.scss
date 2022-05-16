@@ -26,7 +26,7 @@
 }
 
 //second container
-
+/*
 .top-picks {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -70,7 +70,7 @@
       }
     }
   }
-}
+}*/
 
 //third container
 .home-information {
@@ -85,6 +85,7 @@
 
 /* Media Query for Tablets*/
 @media only screen and (min-width: 767.98px) and (max-width: 991.98px) {
+  /*
   //second container
 
   .top-picks {
@@ -94,7 +95,7 @@
         width: 100%;
       }
     }
-  }
+  }*/
 }
 
 /* Media Query for Desktop*/
@@ -124,7 +125,7 @@
   }
 
   //second container
-
+  /*
   .top-picks {
     .list-group .row {
       grid-template-columns: repeat(4, 1fr);
@@ -140,7 +141,7 @@
         }
       }
     }
-  }
+  }*/
 
   //Third container
   .home-information {

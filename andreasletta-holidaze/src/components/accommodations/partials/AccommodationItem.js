@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 function AccommodationItem({ id, image, name, description, type }) {
   return (
-    <Col className="p-0" id={id}>
-      <ListGroup.Item className="py-4">
-        <Link className="link-info" to={`/accommodations/${id}`}>
-          <Card>
+    <Col className="p-0 " id={id}>
+      <ListGroup.Item className="py-4 px-0 ">
+        <Link className="link-info " to={`/accommodations/${id}`}>
+          <Card className="shadow ">
             <Card.Img variant="top" src={image} />
             <Card.Body>
               <Card.Title> {name}</Card.Title>
@@ -20,7 +20,7 @@ function AccommodationItem({ id, image, name, description, type }) {
                 {description}
                 ...
               </Card.Text>
-              <Button variant="primary">Read more</Button>
+              <Button variant="outline-primary">Read more</Button>
             </Card.Body>
           </Card>
         </Link>
