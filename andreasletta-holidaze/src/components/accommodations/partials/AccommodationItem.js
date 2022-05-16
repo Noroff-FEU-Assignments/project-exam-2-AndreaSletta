@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 function AccommodationItem({ id, image, name, description, type }) {
   return (
-    <Col className="p-0 " id={id}>
+    <Col className="p-0 p-md-3 p-lg-3" id={id}>
       <ListGroup.Item className="py-4 px-0 ">
         <Link className="link-info " to={`/accommodations/${id}`}>
-          <Card className="shadow ">
+          <Card className="shadow">
             <Card.Img variant="top" src={image} />
             <Card.Body>
               <Card.Title> {name}</Card.Title>

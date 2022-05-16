@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   background-color: #e5e3dc;
 }
@@ -640,6 +641,12 @@ input,
   margin: auto;
 }
 
+.list-group .row {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .list-group .row .col .list-group-item {
   height: 100%;
   border: none;
@@ -663,5 +670,102 @@ input,
 .list-group .row .col .list-group-item .link-info .card img {
   height: 250px;
   border-radius: 0;
+}
+
+.single-accommodations-container .row {
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+
+.single-accommodations-container .row .col .row {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.single-accommodations-container .row .col .row .col .list-group {
+  list-style: circle;
+}
+
+.single-accommodations-container .row .col .row .col .list-group .list-group-item {
+  border: none;
+  padding-left: 0;
+}
+
+.single-accommodations-container .row .col .row .col .list-group .list-group-item::before {
+  content: "• ";
+}
+
+.carousel-col {
+  height: 400px;
+}
+
+.carousel-col .carousel {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 4fr 1fr;
+      grid-template-columns: 1fr 4fr 1fr;
+}
+
+.carousel-col .carousel .carousel-indicators {
+  display: none;
+}
+
+.carousel-col .carousel a {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-col .carousel .carousel-control-next {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.carousel-col .carousel .carousel-control-prev {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+.carousel-col .carousel .carousel-inner {
+  height: 100%;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+.carousel-col .carousel .carousel-inner .carousel-item {
+  height: 100%;
+  margin: auto;
+}
+
+.carousel-col .carousel .carousel-inner .carousel-item img {
+  height: 100%;
+  width: auto;
+}
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal.show .modal-dialog {
+  background-color: red;
 }
 /*# sourceMappingURL=style.css.map */

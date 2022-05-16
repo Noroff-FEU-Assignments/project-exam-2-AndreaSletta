@@ -13,13 +13,13 @@ export default function GetInquiryModal() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
+      <Button variant="outline-primary" className="my-4" onClick={handleShow}>
+        Send an enquiry
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Send an inquiry</Modal.Title>
+          <Modal.Title>Send an enquiry</Modal.Title>
         </Modal.Header>
         <Modal.Body id="inquiryModal">
           <Form>

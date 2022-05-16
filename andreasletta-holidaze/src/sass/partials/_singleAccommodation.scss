@@ -1,0 +1,24 @@
+.single-accommodations-container {
+  .row {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    .col {
+      .row {
+        margin-left: auto;
+        margin-right: auto;
+        .col {
+          .list-group {
+            list-style: circle;
+            .list-group-item {
+              border: none;
+              padding-left: 0;
+              &::before {
+                content: "• ";
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

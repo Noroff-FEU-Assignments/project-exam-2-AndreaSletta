@@ -1,0 +1,44 @@
+.carousel-col {
+  height: 400px;
+  .carousel {
+    height: 100%;
+    display: grid;
+
+    grid-template-columns: 1fr 4fr 1fr;
+    .carousel-indicators {
+      display: none;
+    }
+    a {
+      position: relative;
+      width: 100%;
+    }
+    .carousel-control-next {
+      order: 3;
+      justify-content: end;
+    }
+    .carousel-control-prev {
+      order: 1;
+      justify-content: start;
+    }
+    .carousel-inner {
+      height: 100%;
+      order: 2;
+      .carousel-item {
+        height: 100%;
+        margin: auto;
+
+        img {
+          height: 100%;
+          width: auto;
+        }
+      }
+    }
+  }
+}
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
