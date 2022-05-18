@@ -2,10 +2,18 @@
   .row {
     margin-left: -1.5rem;
     margin-right: -1.5rem;
+    .bg-white {
+      p,
+      div {
+        max-width: 500px;
+        margin: auto;
+      }
+    }
     .col {
       .row {
         margin-left: auto;
         margin-right: auto;
+
         .col {
           .list-group {
             list-style: circle;
@@ -19,6 +27,18 @@
           }
         }
       }
+    }
+  }
+}
+
+/* Media Query for Tablets*/
+@media only screen and (min-width: 767.98px) and (max-width: 991.98px) {
+}
+
+/* Media Query for Desktop*/
+@media (min-width: 922px) {
+  .single-accommodations-container {
+    .row {
     }
   }
 }

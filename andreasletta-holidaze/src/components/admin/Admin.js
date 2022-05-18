@@ -7,6 +7,7 @@ import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Logout from "./utils/Logout";
 import AdminFooter from "../layout/AdminFooter";
+import room from "../../images/room.jpg";
 
 const username = getUsername();
 
@@ -16,31 +17,40 @@ export default function Admin() {
     return (
       <>
         <AdminNavbar />
-        <Container className="clear-header">
+        <Container className="clear-header admin px-4">
           <Heading title={"Welcome " + username} />
-          <Row xs={1}>
+          <Row xs={1} md={1} lg={2} className="py-4">
             <Col>
-              <Link to={`/enquiries`}>
-                <Button variant="outline-primary">Enquiries</Button>
-              </Link>
+              <Row xs={1}>
+                <Col>
+                  <Link to={`/enquiries`}>
+                    <Button variant="outline-primary">Enquiries</Button>
+                  </Link>
+                </Col>
+                <Col>
+                  <Link to={`/messages`}>
+                    <Button variant="outline-primary">Messages</Button>{" "}
+                  </Link>
+                </Col>
+                <Col>
+                  {" "}
+                  <Link to={`/createestablishment`}>
+                    <Button variant="outline-primary">
+                      Create a new establishment
+                    </Button>{" "}
+                  </Link>
+                </Col>
+                <Col>
+                  <Button variant="dark" onClick={Logout}>
+                    Logout
+                  </Button>
+                </Col>
+              </Row>
             </Col>
             <Col>
-              <Link to={`/messages`}>
-                <Button variant="outline-primary">Messages</Button>{" "}
-              </Link>
-            </Col>
-            <Col>
-              {" "}
-              <Link to={`/createestablishment`}>
-                <Button variant="outline-primary">
-                  Create a new establishment
-                </Button>{" "}
-              </Link>
-            </Col>
-            <Col>
-              <Button variant="dark" onClick={Logout}>
-                Logout
-              </Button>
+              <Col className=" pt-5 pt-lg-0">
+                <img src={room} alt="A bed" />
+              </Col>
             </Col>
           </Row>
         </Container>
@@ -51,9 +61,17 @@ export default function Admin() {
     return (
       <>
         <AdminNavbar />
-        <Container className="clear-header">
+        <Container className="clear-header admin px-4">
           <Heading title="Admin" />
-          <LoginForm />
+          <Row xs={1} md={1} lg={2} className="py-4">
+            <Col>
+              {" "}
+              <LoginForm />
+            </Col>
+            <Col className=" pt-5 pt-lg-0">
+              <img src={room} alt="A bed" />
+            </Col>
+          </Row>
         </Container>
         <AdminFooter />
       </>

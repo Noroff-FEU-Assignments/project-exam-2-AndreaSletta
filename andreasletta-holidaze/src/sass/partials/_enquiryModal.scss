@@ -1,9 +1,15 @@
-.modal.show .modal-dialog {
-  background-color: red;
-}
-
-.modal-backdrop.fade {
-  background-color: rgba(255, 255, 255, 0.781);
-
-  opacity: 100%;
+.modal {
+  .modal-dialog {
+    height: 100%;
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 0;
+    align-items: center;
+    .modal-content {
+      border-radius: 0;
+      .modal-header {
+        border-bottom: 0;
+      }
+    }
+  }
 }

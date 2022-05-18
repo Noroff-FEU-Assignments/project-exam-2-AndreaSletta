@@ -13,11 +13,10 @@ export default function AdminNavbar() {
   if (username) {
     return (
       <Navbar
-        bg="dark"
         variant="dark"
         expand="lg"
         sticky="top"
-        className="px-3 py-0"
+        className="py-0 admin-navbar"
         id="navbar"
       >
         <Link to="/admin">
@@ -66,11 +65,10 @@ export default function AdminNavbar() {
   } else {
     return (
       <Navbar
-        bg="dark"
         variant="dark"
         expand="lg"
         sticky="top"
-        className="px-3"
+        className="px-3 admin-navbar-hidden"
         id="navbar"
       >
         <NavLink to="/">

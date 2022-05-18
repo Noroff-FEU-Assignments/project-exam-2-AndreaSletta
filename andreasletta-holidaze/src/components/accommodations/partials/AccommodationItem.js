@@ -5,12 +5,15 @@ import { Link } from "react-router-dom";
 function AccommodationItem({ id, image, name, description, type }) {
   return (
     <Col className="p-0 p-md-3 p-lg-3" id={id}>
-      <ListGroup.Item className="py-4 px-0 ">
+      <ListGroup.Item className="py-4 py-md-0 py-lg-0 px-0 ">
         <Link className="link-info " to={`/accommodations/${id}`}>
           <Card className="shadow">
             <Card.Img variant="top" src={image} />
             <Card.Body>
-              <Card.Title> {name}</Card.Title>
+              <Card.Title>
+                {" "}
+                <h3> {name}</h3>
+              </Card.Title>
               <Card.Text>
                 {" "}
                 <i className="bi bi-house"></i>

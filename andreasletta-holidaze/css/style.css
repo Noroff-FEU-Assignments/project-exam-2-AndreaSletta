@@ -11,7 +11,8 @@ p {
 
 h1,
 h2,
-h3 {
+h3,
+.modal-title {
   font-family: gimlet-micro-condensed, serif;
   font-weight: 400;
   font-style: normal;
@@ -38,8 +39,8 @@ p {
 }
 
 .shadow {
-  -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
 }
 
 /*
@@ -126,6 +127,20 @@ img {
 
 .clear-header {
   padding-top: 90px;
+}
+
+.container .admin-navbar-hidden {
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.container .admin-navbar-hidden a {
+  margin: auto;
+  padding: 0;
+}
+
+.container .admin-navbar-hidden a span {
+  margin: auto;
 }
 
 /* Media Query for Tablets*/
@@ -448,16 +463,22 @@ img {
   }
 }
 
-.btn-outline-primary {
+.btn-outline-primary,
+.btn-check:focus + .btn-outline-primary,
+.btn-outline-primary:focus {
   border-color: black;
   color: black;
   border-radius: 0;
   border-width: 2px;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
-.btn-outline-primary:hover {
+.btn-outline-primary:hover,
+.btn-check:focus + .btn-outline-primary:hover,
+.btn-outline-primary:focus:hover {
   border-color: black;
   background-color: black;
   color: white;
@@ -584,9 +605,11 @@ footer .footer-icons .col a {
 
 /* Media Query for Desktop*/
 input,
-.input-group {
+.input-group,
+.form-control {
   border: solid black 2px;
   border-radius: 0;
+  background-color: transparent;
 }
 
 .filter {
@@ -677,6 +700,12 @@ input,
   margin-right: -1.5rem;
 }
 
+.single-accommodations-container .row .bg-white p,
+.single-accommodations-container .row .bg-white div {
+  max-width: 500px;
+  margin: auto;
+}
+
 .single-accommodations-container .row .col .row {
   margin-left: auto;
   margin-right: auto;
@@ -695,6 +724,8 @@ input,
   content: "• ";
 }
 
+/* Media Query for Tablets*/
+/* Media Query for Desktop*/
 .carousel-col {
   height: 400px;
 }
@@ -765,7 +796,100 @@ input,
           align-items: center;
 }
 
-.modal.show .modal-dialog {
-  background-color: red;
+/* Media Query for Tablets*/
+/* Media Query for Desktop*/
+@media (min-width: 922px) {
+  .single-accommodations-container .row .carousel-col {
+    height: 100%;
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+  .single-accommodations-container .row .carousel-col .carousel-dark {
+    height: 100%;
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+  .single-accommodations-container .row .carousel-col .carousel-dark .carousel-inner .carousel-item {
+    height: 100%;
+  }
+  .single-accommodations-container .row .carousel-col .carousel-dark .carousel-inner .carousel-item img {
+    height: 300px;
+  }
+}
+
+.modal .modal-dialog {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 0;
+  margin-bottom: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal .modal-dialog .modal-content {
+  border-radius: 0;
+}
+
+.modal .modal-dialog .modal-content .modal-header {
+  border-bottom: 0;
+}
+
+.contact-us {
+  min-height: 100vh;
+}
+
+.contact-us .row {
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+}
+
+.contact-us .row .col {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.contact-us .row .col form {
+  max-width: 350px;
+  margin: auto;
+}
+
+.contact-us .row .d-sm-block {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.contact-us .row .d-sm-block img {
+  height: 30vh;
+}
+
+/* Media Query for Tablets*/
+@media only screen and (min-width: 767.98px) and (max-width: 991.98px) {
+  .contact-us {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: auto auto 1fr;
+        grid-template-rows: auto auto 1fr;
+  }
+  .contact-us .row .col form {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+}
+
+/* Media Query for Desktop*/
+@media (min-width: 922px) {
+  .contact-us .row .d-sm-block {
+    overflow-x: hidden;
+  }
+  .contact-us .row .d-sm-block img {
+    min-height: 25em;
+  }
 }
 /*# sourceMappingURL=style.css.map */

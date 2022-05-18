@@ -1,0 +1,56 @@
+.contact-us {
+  min-height: 100vh;
+
+  .row {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    align-content: space-between;
+    .col {
+      height: fit-content;
+      form {
+        max-width: 350px;
+        margin: auto;
+      }
+    }
+    .d-sm-block {
+      padding-left: 0;
+      padding-right: 0;
+      img {
+        height: 30vh;
+      }
+    }
+  }
+}
+
+/* Media Query for Tablets*/
+@media only screen and (min-width: 767.98px) and (max-width: 991.98px) {
+  .contact-us {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+
+    .row {
+      .col {
+        form {
+          align-self: center;
+        }
+      }
+      .d-sm-block {
+      }
+    }
+  }
+}
+
+/* Media Query for Desktop*/
+@media (min-width: 922px) {
+  .contact-us {
+    .row {
+      .d-sm-block {
+        overflow-x: hidden;
+
+        img {
+          min-height: 25em;
+        }
+      }
+    }
+  }
+}

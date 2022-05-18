@@ -55,6 +55,20 @@
   padding-top: 90px;
 }
 
+// admin-navbar
+.container {
+  .admin-navbar-hidden {
+    align-content: center;
+    a {
+      margin: auto;
+      padding: 0;
+      span {
+        margin: auto;
+      }
+    }
+  }
+}
+
 /* Media Query for Tablets*/
 @media only screen and (min-width: 767.98px) and (max-width: 991.98px) {
 }

@@ -51,7 +51,7 @@ function GetTopPics() {
             if (accommodation.attributes.featured === true) {
               return (
                 <Col key={accommodation.id} className="p-0">
-                  <ListGroup.Item className="py-4 px-0 ">
+                  <ListGroup.Item className="py-4  ">
                     <Link
                       className="link-dark link-info text-decoration-none"
                       to={`/accommodations/${accommodation.id}`}

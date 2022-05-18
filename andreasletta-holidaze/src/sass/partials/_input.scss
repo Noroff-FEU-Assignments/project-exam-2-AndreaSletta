@@ -1,7 +1,9 @@
 input,
-.input-group {
+.input-group,
+.form-control {
   border: solid black 2px;
   border-radius: 0;
+  background-color: transparent;
 }
 
 .filter {

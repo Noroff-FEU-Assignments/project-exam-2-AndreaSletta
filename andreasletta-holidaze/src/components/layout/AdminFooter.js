@@ -12,7 +12,7 @@ import {
 export default function AdminFooter() {
   return (
     <footer className=" sticky-bottom bg-light">
-      <Row xs={1}>
+      <Row xs={1} className="mx-0 p-3">
         <Col>
           <p>Admin</p>
         </Col>

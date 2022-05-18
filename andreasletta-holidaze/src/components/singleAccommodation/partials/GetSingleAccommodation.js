@@ -54,77 +54,73 @@ export default function GetSingleAccommodation() {
   const facilities = accommodations.attributes.facilities[0];
 
   return (
-    <>
-      <Container className="px-4 single-accommodations-container">
-        <Breadcrumb className="clear-header">
-          <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-          <Breadcrumb.Item href="/accommodations">
-            Accommodations
-          </Breadcrumb.Item>
-          <Breadcrumb.Item active>
-            {accommodations.attributes.name}
-          </Breadcrumb.Item>
-        </Breadcrumb>
+    <Container className="px-4 pb-5 single-accommodations-container">
+      <Breadcrumb className="clear-header">
+        <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+        <Breadcrumb.Item href="/accommodations">Accommodations</Breadcrumb.Item>
+        <Breadcrumb.Item active>
+          {accommodations.attributes.name}
+        </Breadcrumb.Item>
+      </Breadcrumb>
 
-        <Heading title={accommodations.attributes.name} />
-        <Row xs={1} md={2}>
-          <Col className="carousel-col py-4 py-md-0 py-lg-0">
-            <Carousel className="carousel-dark">
-              <Carousel.Item className="">
-                <img
-                  className=" shadow"
-                  src={accommodations.attributes.images.data[0].attributes.url}
-                  alt="First slide"
-                />
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  className="shadow"
-                  src={accommodations.attributes.images.data[1].attributes.url}
-                  alt="Second slide"
-                />
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  className=" shadow"
-                  src={accommodations.attributes.images.data[2].attributes.url}
-                  alt="Third slide"
-                />
-              </Carousel.Item>
-            </Carousel>
-          </Col>
-          <Col className="bg-white py-3 px-4 ">
-            <p className="py-1">
-              <i className="bi bi-house"></i>
-              {accommodations.attributes.type}
-            </p>
-            <p className="py-1">
-              <i className="bi bi-map"></i>
-              {accommodations.attributes.address}
-            </p>
-            <p className="py-1">
-              <i className="bi bi-currency-dollar"></i>
-              {accommodations.attributes.price}
-            </p>
-            <p> {accommodations.attributes.description}</p>
-            <Row xs={2} className="py-4">
-              <Col>
-                <ListGroup>
-                  <h4>Facilities:</h4>
-                  <GetFacilitiesCloseBy object={facilities} />
-                </ListGroup>
-              </Col>
-              <Col>
-                <h4>Close by:</h4>
-                <ListGroup>
-                  <GetFacilitiesCloseBy object={attractions} />
-                </ListGroup>
-              </Col>
-            </Row>
-            <GetInquiryModal />
-          </Col>
-        </Row>
-      </Container>
-    </>
+      <Heading title={accommodations.attributes.name} />
+      <Row xs={1} lg={2}>
+        <Col className="carousel-col py-4  ">
+          <Carousel className="carousel-dark">
+            <Carousel.Item>
+              <img
+                className=" shadow"
+                src={accommodations.attributes.images.data[0].attributes.url}
+                alt="First slide"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="shadow"
+                src={accommodations.attributes.images.data[1].attributes.url}
+                alt="Second slide"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className=" shadow"
+                src={accommodations.attributes.images.data[2].attributes.url}
+                alt="Third slide"
+              />
+            </Carousel.Item>
+          </Carousel>
+        </Col>
+        <Col className="bg-white py-3 px-4 my-lg-4 shadow">
+          <p className="py-1">
+            <i className="bi bi-house"></i>
+            {accommodations.attributes.type}
+          </p>
+          <p className="py-1">
+            <i className="bi bi-map"></i>
+            {accommodations.attributes.address}
+          </p>
+          <p className="py-1">
+            <i className="bi bi-currency-dollar"></i>
+            {accommodations.attributes.price}
+          </p>
+          <p> {accommodations.attributes.description}</p>
+          <Row xs={2} className="py-4">
+            <Col>
+              <ListGroup>
+                <h4>Facilities:</h4>
+                <GetFacilitiesCloseBy object={facilities} />
+              </ListGroup>
+            </Col>
+            <Col>
+              <h4>Close by:</h4>
+              <ListGroup>
+                <GetFacilitiesCloseBy object={attractions} />
+              </ListGroup>
+            </Col>
+          </Row>
+          <GetInquiryModal accommodation={accommodations.attributes.name} />
+        </Col>
+      </Row>
+    </Container>
   );
 }

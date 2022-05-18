@@ -1,11 +1,14 @@
 // Primary button
 
-.btn-outline-primary {
+.btn-outline-primary,
+.btn-check:focus + .btn-outline-primary,
+.btn-outline-primary:focus {
   border-color: black;
   color: black;
   border-radius: 0;
   border-width: 2px;
   transition: all 0.5s;
+  box-shadow: none;
   &:hover {
     border-color: black;
     background-color: black;
