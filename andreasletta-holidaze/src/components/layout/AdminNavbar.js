@@ -1,6 +1,7 @@
 import { Navbar, Nav, NavLink, Button } from "react-bootstrap";
 import { getUsername } from "../admin/utils/Storage";
 import { Link } from "react-router-dom";
+
 const username = getUsername();
 
 export default function AdminNavbar() {
@@ -21,7 +22,9 @@ export default function AdminNavbar() {
       >
         <Link to="/admin">
           <Navbar.Brand>
-            <div id="logo">Holidaze Admin</div>
+            <div id="logo">
+              Holidaze <p> Admin </p>
+            </div>
           </Navbar.Brand>
         </Link>
 
@@ -44,21 +47,26 @@ export default function AdminNavbar() {
           id="basic-navbar-nav"
           className="justify-content-md-center"
         >
-          <Nav className="mr-auto">
-            <Link to="/admin" className="nav-link">
+          <Nav className="mr-auto ">
+            <Link to="/admin" className="nav-link py-2 fs-6 text px-lg-3">
               Admin
             </Link>
-            <Link to="/enquiries" className="nav-link">
+            <Link to="/enquiries" className="nav-link py-2 fs-6 text px-lg-3">
               Enquiries
             </Link>
-            <Link to="/messages" className="nav-link">
+            <Link to="/messages" className="nav-link py-2 fs-6 text px-lg-3">
               Messages
             </Link>
-            <Link to="/createestablishment" className="nav-link">
+            <Link
+              to="/createestablishment"
+              className="nav-link py-2 fs-6 text px-lg-3"
+            >
               Create a new establishment
             </Link>
-            <Button>Logout</Button>
           </Nav>
+          <Button className="nav-link py-2 fs-6 text">
+            Logout <i className="fa fa-solid fa-user ps-2"></i>
+          </Button>
         </Navbar.Collapse>
       </Navbar>
     );

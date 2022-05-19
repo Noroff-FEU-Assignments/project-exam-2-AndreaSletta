@@ -67,6 +67,34 @@
       }
     }
   }
+  #logo {
+    p {
+      display: inline;
+    }
+  }
+  .admin-navbar {
+    justify-content: space-between;
+
+    a {
+      padding-left: 1em;
+    }
+    .navbar-nav {
+      a {
+        padding-left: 0;
+        color: white;
+      }
+    }
+    #basic-navbar-nav {
+      padding-top: 1.5em;
+      padding-bottom: 1.5em;
+      button {
+        margin: auto;
+        &:hover {
+          color: rgba(255, 255, 255, 0.55);
+        }
+      }
+    }
+  }
 }
 
 /* Media Query for Tablets*/
@@ -91,6 +119,23 @@
   #navbarSupportedContent {
     form {
       float: right;
+    }
+  }
+
+  // admin-navbar
+  .container {
+    .admin-navbar {
+      #basic-navbar-nav {
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-right: 100px;
+        button {
+          position: absolute;
+          right: 0;
+
+          padding-right: 1em;
+        }
+      }
     }
   }
 }

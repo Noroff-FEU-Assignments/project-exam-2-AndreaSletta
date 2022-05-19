@@ -70,13 +70,19 @@ export default function CreateNavbar() {
           className="justify-content-md-center py-4 py-lg-0 "
         >
           <Nav className="mr-auto">
-            <NavLink to="/" className="nav-link py-2 fs-6 text">
+            <NavLink to="/" className="nav-link py-2 fs-6 text px-lg-3">
               Home
             </NavLink>
-            <NavLink to="/accommodations" className="nav-link py-2 fs-6 text">
+            <NavLink
+              to="/accommodations"
+              className="nav-link py-2 fs-6 text px-lg-3"
+            >
               Accommodations
             </NavLink>
-            <NavLink to="/contactus" className="nav-link py-2 fs-6 text">
+            <NavLink
+              to="/contactus"
+              className="nav-link py-2 fs-6 text px-lg-3"
+            >
               Contact us
             </NavLink>
           </Nav>

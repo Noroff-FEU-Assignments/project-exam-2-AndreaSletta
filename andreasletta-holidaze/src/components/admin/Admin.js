@@ -22,17 +22,17 @@ export default function Admin() {
           <Row xs={1} md={1} lg={2} className="py-4">
             <Col>
               <Row xs={1}>
-                <Col>
+                <Col className="pb-2">
                   <Link to={`/enquiries`}>
                     <Button variant="outline-primary">Enquiries</Button>
                   </Link>
                 </Col>
-                <Col>
+                <Col className="py-2">
                   <Link to={`/messages`}>
                     <Button variant="outline-primary">Messages</Button>{" "}
                   </Link>
                 </Col>
-                <Col>
+                <Col className="py-2">
                   {" "}
                   <Link to={`/createestablishment`}>
                     <Button variant="outline-primary">
@@ -40,8 +40,8 @@ export default function Admin() {
                     </Button>{" "}
                   </Link>
                 </Col>
-                <Col>
-                  <Button variant="dark" onClick={Logout}>
+                <Col className="pt-2">
+                  <Button variant="primary" onClick={Logout}>
                     Logout
                   </Button>
                 </Col>
@@ -61,14 +61,14 @@ export default function Admin() {
     return (
       <>
         <AdminNavbar />
-        <Container className="clear-header admin px-4">
+        <Container className="clear-header admin-login px-4">
           <Heading title="Admin" />
           <Row xs={1} md={1} lg={2} className="py-4">
             <Col>
               {" "}
               <LoginForm />
             </Col>
-            <Col className=" pt-5 pt-lg-0">
+            <Col className="  pt-lg-0">
               <img src={room} alt="A bed" />
             </Col>
           </Row>

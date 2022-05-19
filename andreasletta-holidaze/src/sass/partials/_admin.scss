@@ -1,17 +1,49 @@
-.admin {
+.admin-login {
   height: 100vh;
   .row {
     margin-right: -1.5rem;
+    margin-left: -1.5rem;
     align-content: space-between;
     height: 80vh;
+
     .col {
       height: fit-content;
+      padding-right: 1.5rem;
+      padding-left: 1.5rem;
       form {
         max-width: 350px;
       }
     }
     .col:last-of-type {
-      padding-left: 0;
+      padding-right: 0;
+      img {
+        height: 30vh;
+      }
+    }
+  }
+}
+
+// when logged in
+
+.admin {
+  height: 100vh;
+  .row {
+    margin-right: -1.5rem;
+    margin-left: -1.5rem;
+    height: 80vh;
+
+    .col {
+      height: fit-content;
+      padding-right: 1.5rem;
+      padding-left: 1.5rem;
+      .row {
+        align-content: flex-start;
+        height: fit-content;
+        .col {
+        }
+      }
+    }
+    .col:last-of-type {
       padding-right: 0;
       img {
         height: 30vh;
@@ -22,7 +54,7 @@
 
 /* Media Query for Tablets*/
 @media only screen and (min-width: 767.98px) and (max-width: 991.98px) {
-  .admin {
+  .admin-login {
     display: grid;
     grid-template-rows: auto auto 1fr;
 
@@ -33,6 +65,8 @@
         }
       }
       .col:last-of-type {
+        img {
+        }
       }
     }
   }
@@ -40,6 +74,17 @@
 
 /* Media Query for Desktop*/
 @media (min-width: 922px) {
+  .admin-login {
+    .row {
+      .col:last-of-type {
+        overflow-x: hidden;
+
+        img {
+          min-height: 25em;
+        }
+      }
+    }
+  }
   .admin {
     .row {
       .col:last-of-type {

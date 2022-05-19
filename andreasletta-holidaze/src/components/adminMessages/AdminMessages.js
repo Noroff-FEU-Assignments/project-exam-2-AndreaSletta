@@ -1,5 +1,5 @@
 import { getUsername } from "../admin/utils/Storage";
-import { Container } from "react-bootstrap";
+import { Container, Breadcrumb } from "react-bootstrap";
 import AdminNavbar from "../layout/AdminNavbar";
 import Heading from "../layout/Heading";
 import AdminFooter from "../layout/AdminFooter";
@@ -14,6 +14,10 @@ export default function AdminMessages() {
       <>
         <AdminNavbar />
         <Container className="clear-header">
+          <Breadcrumb>
+            <Breadcrumb.Item href="/admin">Admin</Breadcrumb.Item>
+            <Breadcrumb.Item active>Messages</Breadcrumb.Item>
+          </Breadcrumb>
           <Heading title={"Messages"} />
           <GetMessages />
         </Container>

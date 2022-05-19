@@ -12,6 +12,7 @@ import {
   DropdownButton,
   InputGroup,
   FormControl,
+  Breadcrumb,
 } from "react-bootstrap";
 
 const username = getUsername();
@@ -22,6 +23,10 @@ export default function AdminCreateEstablishment() {
       <>
         <AdminNavbar />
         <Container className="clear-header">
+          <Breadcrumb>
+            <Breadcrumb.Item href="/admin">Admin</Breadcrumb.Item>
+            <Breadcrumb.Item active>Create a new establishment</Breadcrumb.Item>
+          </Breadcrumb>
           <Heading title={"Create a new establishment"} />
           <Row xs={1} md={2}>
             <Col>

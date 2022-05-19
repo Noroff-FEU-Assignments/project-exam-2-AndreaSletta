@@ -52,8 +52,8 @@ export default function GetEnguiries() {
   console.log(enquiries);
 
   return (
-    <ListGroup>
-      <Row xs={1} md={2} lg={4}>
+    <ListGroup className="pb-5 pt-3">
+      <Row xs={1}>
         {enquiries.map(inquiry => {
           var date = new Date(inquiry.attributes.publishedAt);
           var formattedDate = format(date, "hh:mm a dd. MMMM yyyy");
@@ -63,7 +63,7 @@ export default function GetEnguiries() {
                 <Accordion.Header>
                   <Row xs={1}>
                     <Col>
-                      <Row xs={2}>
+                      <Row xs={2} className="pb-3">
                         <Col>{inquiry.attributes.subject}</Col>
                         <Col>{formattedDate}</Col>
                       </Row>
