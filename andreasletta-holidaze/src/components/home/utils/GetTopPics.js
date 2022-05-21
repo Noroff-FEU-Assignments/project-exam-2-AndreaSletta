@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { BASE_URL } from "../../../constants/api";
-import { Card, Button, ListGroup } from "react-bootstrap";
+import { Card, Button, ListGroup, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 
@@ -36,7 +36,11 @@ function GetTopPics() {
   );
 
   if (loading) {
-    return <div className="text-info">Loading...</div>;
+    return (
+      <Container className="loading">
+        <i className="fas fa-spinner fa-pulse  text-body"></i>
+      </Container>
+    );
   }
 
   if (error) {

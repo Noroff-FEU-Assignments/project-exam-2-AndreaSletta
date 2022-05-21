@@ -1,5 +1,5 @@
 import { getUsername } from "../admin/utils/Storage";
-import { Container, Breadcrumb } from "react-bootstrap";
+import { Container, Breadcrumb, Button } from "react-bootstrap";
 import AdminNavbar from "../layout/AdminNavbar";
 import Heading from "../layout/Heading";
 import AdminFooter from "../layout/AdminFooter";
@@ -25,6 +25,18 @@ export default function AdminEnquiries() {
       </>
     );
   } else {
-    return <>please log in</>;
+    return (
+      <>
+        <AdminNavbar />
+        <Container className="clear-header min-height">
+          <Heading title={"Enquiries"} />
+          <p>You are not logged in!</p>
+          <Button variant="primary" href="/admin">
+            Login
+          </Button>
+        </Container>
+        <AdminFooter />
+      </>
+    );
   }
 }

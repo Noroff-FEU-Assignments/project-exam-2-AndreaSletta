@@ -36,11 +36,7 @@ export default function ContactUs() {
                 <Form.Control type="text" placeholder="Message..." />
                 <Form.Text id="formMessageMessage" muted></Form.Text>
               </Form.Group>
-              <Button
-                variant="outline-primary"
-                type="submit"
-                onClick={AddMessage}
-              >
+              <Button variant="primary" type="submit" onClick={AddMessage}>
                 Submit
               </Button>
               <Container id="addMessageContainer"></Container>

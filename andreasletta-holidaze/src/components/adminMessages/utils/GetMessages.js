@@ -2,7 +2,15 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { BASE_URL } from "../../../constants/api";
 import { getToken } from "../../admin/utils/Storage";
-import { Row, ListGroup, Col, Card, Button, Accordion } from "react-bootstrap";
+import {
+  Row,
+  ListGroup,
+  Col,
+  Card,
+  Button,
+  Accordion,
+  Container,
+} from "react-bootstrap";
 import { format } from "date-fns";
 const token = getToken();
 
@@ -40,7 +48,11 @@ export default function GetMessages() {
   );
 
   if (loading) {
-    return <div className="text-info">Loading...</div>;
+    return (
+      <Container className="loading">
+        <i className="fas fa-spinner fa-pulse  text-body"></i>
+      </Container>
+    );
   }
 
   if (error) {

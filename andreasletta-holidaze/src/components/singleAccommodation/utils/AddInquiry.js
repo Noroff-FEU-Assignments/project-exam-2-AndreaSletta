@@ -29,33 +29,43 @@ export default function AddInquiry(event) {
   //validate form and display errors
 
   if (checkLength(formName.value, 0)) {
-    formNameMessage.innerHTML = "Valid name";
+    formNameMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-check text-success pe-2"></i>
+    <p>Valid name</p></div>`;
   } else {
-    formNameMessage.innerHTML = "Please enter your name";
+    formNameMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-exclamation text-danger pe-2"></i>
+    <p>Please enter your name</p></div>`;
   }
 
   if (checkLength(formEmail.value, 0)) {
-    formEmailMessage.innerHTML = "Valid name";
+    formEmailMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-check text-success pe-2"></i>
+    <p>Valid email</p></div>`;
   } else {
-    formEmailMessage.innerHTML = "Please enter your name";
+    formEmailMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-exclamation text-danger pe-2"></i>
+    <p>Please enter your email</p></div>`;
   }
 
   if (validateEmail(formEmail.value)) {
-    formEmailMessage.innerHTML = "Valid name";
+    formEmailMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-check text-success pe-2"></i>
+    <p>Valid email</p></div>`;
   } else {
-    formEmailMessage.innerHTML = "Please enter your name";
+    formEmailMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-exclamation text-danger pe-2"></i>
+    <p>Please enter your email</p></div>`;
   }
 
   if (checkLength(formSubject.value, 0)) {
-    formSubjectMessage.innerHTML = "Valid name";
+    formSubjectMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-check text-success pe-2"></i>
+    <p>Valid subject</p></div>`;
   } else {
-    formSubjectMessage.innerHTML = "Please enter your name";
+    formSubjectMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-exclamation text-danger pe-2"></i>
+    <p>Please enter your subject</p></div>`;
   }
 
   if (checkLength(formMessage.value, 0)) {
-    formMessageMessage.innerHTML = "Valid name";
+    formMessageMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-check text-success pe-2"></i>
+    <p>Valid message</p></div>`;
   } else {
-    formMessageMessage.innerHTML = "Please enter your name";
+    formMessageMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-exclamation text-danger pe-2"></i>
+    <p>Please enter your message</p></div>`;
   }
 
   //If form vaild, send

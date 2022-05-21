@@ -48,7 +48,7 @@ export default function Admin() {
               </Row>
             </Col>
             <Col>
-              <Col className=" pt-5 pt-lg-0">
+              <Col className=" pt-5  pt-lg-0">
                 <img src={room} alt="A bed" />
               </Col>
             </Col>

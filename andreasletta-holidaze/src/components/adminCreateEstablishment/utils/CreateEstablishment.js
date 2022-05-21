@@ -165,16 +165,33 @@ export default function CreateEstablishment(event) {
   }
 
   if (checkLength(formImage2.value, 0)) {
-    formImage2Message.innerHTML = "Valid name";
+    formImage2Message.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-check text-success pe-2"></i>
+    <p>Valid image url</p></div>`;
   } else {
-    formImage2Message.innerHTML = "Please enter your name";
+    formImage2Message.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-exclamation text-danger pe-2"></i>
+    <p>Please enter a valid image url</p></div>`;
   }
 
   if (checkLength(formImage3.value, 0)) {
-    formImage3Message.innerHTML = "Valid name";
+    formImage3Message.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-check text-success pe-2"></i>
+    <p>Valid image url</p></div>`;
   } else {
-    formImage3Message.innerHTML = "Please enter your name";
+    formImage3Message.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-exclamation text-danger pe-2"></i>
+    <p>Please enter a valid image url</p></div>`;
   }
+
+  function isImage(url) {
+    var pattern = new RegExp(
+      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" +
+        "((\\d{1,3}\\.){3}\\d{1,3}))" +
+        "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" +
+        "(\\?[;&a-z\\d%_.~+=-]*)?" +
+        "(\\#[-a-z\\d_]*)?$"
+    ); // fragment locator
+    return !!pattern.test(url);
+  }
+  console.log(isImage(formImage3.value));
+  console.log(formImage3.value);
 
   //If form vaild, send
   if (

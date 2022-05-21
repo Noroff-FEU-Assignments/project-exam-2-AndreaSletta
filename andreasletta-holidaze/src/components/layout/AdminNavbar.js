@@ -1,6 +1,7 @@
 import { Navbar, Nav, NavLink, Button } from "react-bootstrap";
 import { getUsername } from "../admin/utils/Storage";
 import { Link } from "react-router-dom";
+import Logout from "../admin/utils/Logout";
 
 const username = getUsername();
 
@@ -64,7 +65,8 @@ export default function AdminNavbar() {
               Create a new establishment
             </Link>
           </Nav>
-          <Button className="nav-link py-2 fs-6 text">
+
+          <Button className="nav-link py-2 fs-6 text" onClick={Logout}>
             Logout <i className="fa fa-solid fa-user ps-2"></i>
           </Button>
         </Navbar.Collapse>

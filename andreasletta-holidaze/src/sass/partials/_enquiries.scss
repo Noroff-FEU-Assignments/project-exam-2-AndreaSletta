@@ -66,10 +66,51 @@
       }
 
       //collapsed part
-      &[aria-expanded="true"] {
-        .accordion-collapse {
-          background-color: red;
-        }
+      .accordion-button[aria-expanded="true"] .accordion-collapse {
+        background-color: red;
+      }
+
+      .accordion-collapse {
+        background-color: #e5e3dc;
+        z-index: 10;
+        margin: auto;
+        width: 100%;
+        top: 0;
+      }
+    }
+  }
+}
+
+//Tab
+.tab-row {
+  .nav-item:first-of-type {
+    a {
+      border-top: 2px solid black;
+    }
+  }
+  .nav-item {
+    a {
+      color: black;
+      border-radius: 0;
+      border-bottom: 2px solid black;
+      &[aria-selected="true"] {
+        background-color: rgba(255, 255, 255, 0.597);
+        color: black;
+      }
+    }
+  }
+  .tab-content {
+    display: flex;
+    .active {
+      position: fixed;
+      top: 90px;
+
+      height: 70%;
+      overflow-y: scroll;
+      align-self: center;
+      background-color: red;
+      .row {
+        margin: auto;
       }
     }
   }

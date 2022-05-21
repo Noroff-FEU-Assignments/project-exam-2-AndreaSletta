@@ -13,7 +13,7 @@ export default function GetInquiryModal({ accommodation }) {
 
   return (
     <>
-      <Button variant="outline-primary" className="my-4" onClick={handleShow}>
+      <Button variant="primary" className="my-4" onClick={handleShow}>
         Send an enquiry
       </Button>
 
@@ -44,7 +44,7 @@ export default function GetInquiryModal({ accommodation }) {
               <Form.Text id="formMessageMessage" muted></Form.Text>
             </Form.Group>
             <Button
-              variant="outline-primary"
+              variant="primary"
               type="submit"
               onClick={AddInquiry}
               className="py-2"

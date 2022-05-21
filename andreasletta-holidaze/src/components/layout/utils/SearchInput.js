@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { BASE_URL } from "../../../constants/api";
-import { ListGroup, Row, Col, Card, Button } from "react-bootstrap";
+import { ListGroup, Row, Col, Card, Button, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default function SearchInput() {
@@ -36,7 +36,11 @@ export default function SearchInput() {
   );
 
   if (loading) {
-    return <div className="text-info">Loading...</div>;
+    return (
+      <Container className="loading">
+        <i className="fas fa-spinner fa-pulse  text-body"></i>
+      </Container>
+    );
   }
 
   if (error) {

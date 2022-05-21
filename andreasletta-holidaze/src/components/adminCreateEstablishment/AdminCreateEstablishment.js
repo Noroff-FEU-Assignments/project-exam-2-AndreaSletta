@@ -255,6 +255,18 @@ export default function AdminCreateEstablishment() {
       </>
     );
   } else {
-    return <>please log in</>;
+    return (
+      <>
+        <AdminNavbar />
+        <Container className="clear-header min-height">
+          <Heading title={"Enquiries"} />
+          <p>You are not logged in!</p>
+          <Button variant="primary" href="/admin">
+            Login
+          </Button>
+        </Container>
+        <AdminFooter />
+      </>
+    );
   }
 }

@@ -42,7 +42,11 @@ export default function GetSingleAccommodation() {
     [url]
   );
   if (loading) {
-    return <div className="text-info">Loading...</div>;
+    return (
+      <Container className="loading">
+        <i className="fas fa-spinner fa-pulse  text-body"></i>
+      </Container>
+    );
   }
 
   if (error) {
@@ -91,27 +95,27 @@ export default function GetSingleAccommodation() {
           </Carousel>
         </Col>
         <Col className="bg-white py-3 px-4 my-lg-4 shadow">
-          <p className="py-1">
+          <p className="pt-1 pb-2">
             <i className="bi bi-house"></i>
             {accommodations.attributes.type}
           </p>
-          <p className="py-1">
+          <p className="py-2">
             <i className="bi bi-map"></i>
             {accommodations.attributes.address}
           </p>
-          <p className="py-1">
+          <p className="py-2">
             <i className="bi bi-currency-dollar"></i>
             {accommodations.attributes.price}
           </p>
           <p> {accommodations.attributes.description}</p>
           <Row xs={2} className="py-4">
-            <Col>
+            <Col className="pe-2 ps-0">
               <ListGroup>
                 <h4>Facilities:</h4>
                 <GetFacilitiesCloseBy object={facilities} />
               </ListGroup>
             </Col>
-            <Col>
+            <Col className="ps-2 pe-0">
               <h4>Close by:</h4>
               <ListGroup>
                 <GetFacilitiesCloseBy object={attractions} />

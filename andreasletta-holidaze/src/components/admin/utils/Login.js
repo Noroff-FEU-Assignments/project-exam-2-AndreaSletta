@@ -1,37 +1,25 @@
 import { saveToken, saveUser, getUsername } from "./Storage";
 import { BASE_URL } from "../../../constants/api";
 import Admin from "../Admin";
-
-const username = getUsername();
+import React from "react";
+import { Redirect } from "react-router-dom";
 
 export default function login(event) {
   const email = document.querySelector("#inputEmail");
 
   const password = document.querySelector("#inputPassword");
 
+  const loginMessage = document.querySelector("#loginMessage");
+
   event.preventDefault();
 
   const emailValue = email.value.trim();
   const passwordValue = password.value.trim();
 
-  doLogin(emailValue, passwordValue);
+  doLogin(emailValue, passwordValue, loginMessage);
 }
 
-function checkLength(value, len) {
-  if (value.trim().length > len) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-function validateEmail(email) {
-  const regEx = /\S+@\S+\.\S+/;
-  const patternMatches = regEx.test(email);
-  return patternMatches;
-}
-
-async function doLogin(email, password) {
+async function doLogin(email, password, loginMessage) {
   const url = BASE_URL + "auth/local";
 
   const data = JSON.stringify({ identifier: email, password: password });
@@ -45,29 +33,28 @@ async function doLogin(email, password) {
   try {
     const response = await fetch(url, options);
     const json = await response.json();
-    console.log(json);
     if (json.user) {
-      console.log(json.user.username);
-
       saveToken(json.jwt);
       saveUser(json.user);
 
       const currentUsername = getUsername();
-      console.log("welcome");
-      // delay then Admin()
+      console.log("welcome", currentUsername);
+      loginMessage.innerHTML =
+        "<i className='fas fa-spinner fa-pulse text-body'></i>";
+
+      function reload() {
+        setTimeout(function () {
+          window.location.reload(false);
+        }, 3000);
+      }
+      reload();
     }
 
     if (json.error) {
-      console.log("Wrong email or password");
+      loginMessage.innerHTML = `<i class="fa fa-solid fa-exclamation text-danger pe-2"></i>
+        <p> Wrong email or password</p>`;
     }
   } catch (error) {
     console.log(error);
   }
 }
-
-if (username) {
-  const currentUsername = getUsername();
-  console.log("welcome, these are yout options");
-}
-
-//Logout();
