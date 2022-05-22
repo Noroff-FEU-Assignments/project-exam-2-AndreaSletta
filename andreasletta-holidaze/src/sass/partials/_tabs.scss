@@ -1,38 +1,85 @@
 .tab-row {
-  max-width: 1200px;
+  max-width: 600px;
   flex-direction: column;
   margin: auto;
-  height: 70vh;
   overflow: hidden;
+
   .col {
-    height: 100%;
-    overflow-y: scroll;
-  }
-  .nav-item:first-of-type {
-    a {
-      border-top: 2px solid black;
+    height: 70vh;
+    overflow: hidden;
+
+    .flex-column {
+      height: 70vh;
+      overflow-y: scroll;
+      flex-direction: row !important;
+      width: 100%;
+      .nav-item {
+        width: 100%;
+      }
+    }
+    .small-text {
+      font-size: smaller;
+      font-family: alber-new-web, sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      text-align: right;
+    }
+    .nav-link {
+      .col {
+        height: auto;
+      }
+    }
+    .nav-item:first-of-type {
+      a {
+        border-top: 2px solid black;
+      }
+    }
+    .nav-item {
+      a {
+        color: black;
+        border-radius: 0;
+        border-bottom: 2px solid black;
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.597);
+        }
+      }
+      .active {
+        background-color: rgba(255, 255, 255, 0.597);
+        color: black;
+      }
     }
   }
-  .nav-item {
-    a {
-      color: black;
-      border-radius: 0;
-      border-bottom: 2px solid black;
-    }
-    .active {
-      background-color: rgba(255, 255, 255, 0.597);
-      color: black;
-    }
-  }
+
   .tab-content {
     .active {
       background-color: white;
       position: absolute;
       top: 180px;
-      width: 100%;
-      height: 100%;
+      left: 0;
+      height: 70vh;
+      overflow-y: scroll;
+      margin-right: var(--bs-gutter-x, 0.75rem);
+      margin-left: var(--bs-gutter-x, 0.75rem);
+
       .row {
+        width: 100%;
         margin: auto;
+        .col {
+          height: auto;
+        }
+        .d-flex {
+          justify-content: space-between;
+          .btn-primary {
+            background-color: transparent;
+            border: none;
+            color: black;
+            padding-left: 0;
+          }
+          p {
+            margin-bottom: 0;
+            align-self: center;
+          }
+        }
       }
     }
   }
@@ -40,22 +87,42 @@
 
 /* Media Query for Tablets*/
 @media only screen and (min-width: 767.98px) and (max-width: 991.98px) {
+  .tab-row {
+    .col {
+      .tab-content {
+        .active {
+          max-width: 600px;
+          margin: auto;
+          left: auto;
+        }
+      }
+    }
+  }
 }
 
 /* Media Query for Desktop*/
 @media (min-width: 922px) {
   .tab-row {
-    height: 70vh;
+    max-width: 1200px;
+    height: 75vh;
     overflow: hidden;
     flex-direction: row;
     .col {
       overflow-y: scroll;
       height: 100%;
-    }
-  }
-  .tab-content {
-    .active {
-      position: relative;
+
+      .flex-column {
+        height: 100%;
+      }
+      .tab-content {
+        .active {
+          background-color: white;
+          position: relative;
+          top: 0;
+          margin-right: auto;
+          margin-left: auto;
+        }
+      }
     }
   }
 }

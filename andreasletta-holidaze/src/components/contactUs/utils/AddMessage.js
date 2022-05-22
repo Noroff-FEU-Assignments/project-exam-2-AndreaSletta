@@ -5,7 +5,6 @@ import axios from "axios";
 export default function AddMessage(event) {
   event.preventDefault();
 
-  const accommodationName = document.querySelector("h1").innerText;
   const addMessageContainer = document.querySelector("#addMessageContainer");
   const formName = document.querySelector("#formName");
   const formNameMessage = document.querySelector("#formNameMessage");
@@ -76,19 +75,19 @@ export default function AddMessage(event) {
         data: {
           name: `${nameValue}`,
           email: `${emailValue}`,
-          subject: `${accommodationName}: ${subjectValue}`,
+          subject: `${subjectValue}`,
           message: `${messageValue}`,
         },
       })
       .then(response => {
-        console.log(response);
+        addMessageContainer.innerHTML = `<h3>Message sent</h3>`;
 
-        function successMessage() {
-          setInterval(function successMessage() {
-            addMessageContainer.innerHTML = "Message sent";
-          }, 2000);
+        function reload() {
+          setTimeout(function () {
+            window.location.reload(false);
+          }, 1500);
         }
-        successMessage();
+        reload();
       });
   }
 

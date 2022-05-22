@@ -36,10 +36,10 @@ export default function ContactUs() {
                 <Form.Control type="text" placeholder="Message..." />
                 <Form.Text id="formMessageMessage" muted></Form.Text>
               </Form.Group>
+              <Container id="addMessageContainer"></Container>
               <Button variant="primary" type="submit" onClick={AddMessage}>
                 Submit
               </Button>
-              <Container id="addMessageContainer"></Container>
             </Form>
           </Col>
           <Col className="d-none d-sm-block pt-5 ">

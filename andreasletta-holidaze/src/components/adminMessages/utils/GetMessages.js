@@ -56,7 +56,7 @@ export default function GetMessages() {
   return (
     <Tab.Container id="left-tabs-example">
       <Row className="tab-row d-flex pt-3 pb-5">
-        <Col>
+        <Col className="pe-lg-4">
           <Nav variant="pills" className="flex-column">
             {messages.map(message => {
               var date = new Date(message.attributes.publishedAt);
@@ -68,7 +68,7 @@ export default function GetMessages() {
                       <Col>
                         <Row xs={2} className="pb-3">
                           <Col>{message.attributes.subject}</Col>
-                          <Col>{formattedDate}</Col>
+                          <Col className="small-text">{formattedDate}</Col>
                         </Row>
                       </Col>
                       <Col>{message.attributes.message.slice(0, 100)}...</Col>
@@ -79,7 +79,7 @@ export default function GetMessages() {
             })}
           </Nav>
         </Col>
-        <Col>
+        <Col className="ps-lg-4">
           <Tab.Content>
             {messages.map(message => {
               var date = new Date(message.attributes.publishedAt);
@@ -89,42 +89,45 @@ export default function GetMessages() {
                   eventKey={message.id}
                   key={message.id}
                   id={message.id}
+                  className="shadow"
                 >
-                  <Button
-                    onClick={() =>
-                      CloseTab(
-                        "left-tabs-example-tabpane-" + message.id,
-                        "left-tabs-example-tab-" + message.id
-                      )
-                    }
-                    className="d-md-none"
-                  >
-                    {" "}
-                    <i className="fa fa-solid fa-angle-left pe-2"></i>
-                    Back
-                  </Button>
-                  <Row xs={1} className="shadow">
-                    <Col> {formattedDate}</Col>
-                    <Col>
+                  <Row xs={1} className="pb-4 pt-1">
+                    <Col className="d-flex">
+                      <Button
+                        onClick={() =>
+                          CloseTab(
+                            "left-tabs-example-tabpane-" + message.id,
+                            "left-tabs-example-tab-" + message.id
+                          )
+                        }
+                      >
+                        <i className="fa fa-solid fa-angle-left pe-2"></i>
+                        Back
+                      </Button>
+                      <p className="small-text"> {formattedDate}</p>
+                    </Col>
+                    <Col className="px-4 pt-3">
                       <p>
                         <span className="fw-bolder">Name: </span>
                         {message.attributes.name}
                       </p>
                     </Col>
-                    <Col>
+                    <Col className="px-4">
                       <p>
-                        {" "}
-                        <span className="fw-bolder">Email: </span>:{" "}
+                        <span className="fw-bolder">Email: </span>:
                         {message.attributes.email}
-                      </p>{" "}
+                      </p>
                     </Col>
-                    <Col>
+                    <Col className="px-4">
                       <p>
                         <span className="fw-bolder">Subject: </span>
                         {message.attributes.subject}
                       </p>
                     </Col>
-                    <Col> {message.attributes.message}</Col>
+                    <Col className="px-4 pb-3">
+                      {" "}
+                      {message.attributes.message}
+                    </Col>
                   </Row>
                 </Tab.Pane>
               );

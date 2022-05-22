@@ -60,7 +60,7 @@ export default function GetEnguiries() {
   return (
     <Tab.Container id="left-tabs-example">
       <Row className="tab-row d-flex pt-3 pb-5">
-        <Col>
+        <Col className="pe-lg-4">
           <Nav variant="pills" className="flex-column">
             {enquiries.map(inquiry => {
               var date = new Date(inquiry.attributes.publishedAt);
@@ -72,7 +72,7 @@ export default function GetEnguiries() {
                       <Col>
                         <Row xs={2} className="pb-3">
                           <Col>{inquiry.attributes.subject}</Col>
-                          <Col>{formattedDate}</Col>
+                          <Col className="small-text">{formattedDate}</Col>
                         </Row>
                       </Col>
                       <Col>{inquiry.attributes.message.slice(0, 100)}...</Col>
@@ -83,7 +83,7 @@ export default function GetEnguiries() {
             })}
           </Nav>
         </Col>
-        <Col>
+        <Col className="ps-lg-4">
           <Tab.Content>
             {enquiries.map(inquiry => {
               var date = new Date(inquiry.attributes.publishedAt);
@@ -93,42 +93,45 @@ export default function GetEnguiries() {
                   eventKey={inquiry.id}
                   key={inquiry.id}
                   id={inquiry.id}
+                  className="shadow"
                 >
-                  <Button
-                    onClick={() =>
-                      CloseTab(
-                        "left-tabs-example-tabpane-" + inquiry.id,
-                        "left-tabs-example-tab-" + inquiry.id
-                      )
-                    }
-                    className="d-md-none"
-                  >
-                    {" "}
-                    <i className="fa fa-solid fa-angle-left pe-2"></i>
-                    Back
-                  </Button>
-                  <Row xs={1} className="shadow">
-                    <Col> {formattedDate}</Col>
-                    <Col>
+                  <Row xs={1} className="pb-4 pt-1">
+                    <Col className="d-flex">
+                      <Button
+                        onClick={() =>
+                          CloseTab(
+                            "left-tabs-example-tabpane-" + inquiry.id,
+                            "left-tabs-example-tab-" + inquiry.id
+                          )
+                        }
+                      >
+                        <i className="fa fa-solid fa-angle-left pe-2"></i>
+                        Back
+                      </Button>
+                      <p className="small-text"> {formattedDate}</p>
+                    </Col>
+                    <Col className="px-4 pt-3">
                       <p>
                         <span className="fw-bolder">Name: </span>
                         {inquiry.attributes.name}
                       </p>
                     </Col>
-                    <Col>
+                    <Col className="px-4">
                       <p>
-                        {" "}
-                        <span className="fw-bolder">Email: </span>:{" "}
+                        <span className="fw-bolder">Email: </span>:
                         {inquiry.attributes.email}
-                      </p>{" "}
+                      </p>
                     </Col>
-                    <Col>
+                    <Col className="px-4">
                       <p>
                         <span className="fw-bolder">Subject: </span>
                         {inquiry.attributes.subject}
                       </p>
                     </Col>
-                    <Col> {inquiry.attributes.message}</Col>
+                    <Col className="px-4 pb-3">
+                      {" "}
+                      {inquiry.attributes.message}
+                    </Col>
                   </Row>
                 </Tab.Pane>
               );

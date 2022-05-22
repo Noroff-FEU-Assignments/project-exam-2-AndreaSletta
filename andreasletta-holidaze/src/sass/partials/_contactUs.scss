@@ -20,6 +20,9 @@
       }
     }
   }
+  #addMessageContainer {
+    padding: 0;
+  }
 }
 
 /* Media Query for Tablets*/
@@ -34,8 +37,6 @@
           align-self: center;
         }
       }
-      .d-sm-block {
-      }
     }
   }
 }
@@ -46,7 +47,6 @@
     .row {
       .d-sm-block {
         overflow-x: hidden;
-
         img {
           min-height: 25em;
         }
