@@ -11,7 +11,6 @@ import {
   Button,
   DropdownButton,
   InputGroup,
-  FormControl,
   Breadcrumb,
 } from "react-bootstrap";
 
@@ -28,9 +27,9 @@ export default function AdminCreateEstablishment() {
             <Breadcrumb.Item active>Create a new establishment</Breadcrumb.Item>
           </Breadcrumb>
           <Heading title={"Create a new establishment"} />
-          <Row xs={1} md={2}>
+          <Row xs={1} className="pt-2 pb-5">
             <Col>
-              <Form>
+              <Form className="form">
                 <Form.Group className="mb-3" controlId="formName">
                   <Form.Label>Accommodation name</Form.Label>
                   <Form.Control
@@ -80,90 +79,88 @@ export default function AdminCreateEstablishment() {
                   <Form.Text id="formTypeMessage" muted></Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formImage1">
-                  <Form.Label>Image</Form.Label>
+                  <Form.Label>Image 1</Form.Label>
                   <Form.Control type="url" placeholder="Image url..." />
                   <Form.Text id="formImage1Message" muted></Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formImage2">
-                  <Form.Label>Image</Form.Label>
+                  <Form.Label>Image 2</Form.Label>
                   <Form.Control type="url" placeholder="Image url..." />
                   <Form.Text id="formImage2Message" muted></Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formImage3">
-                  <Form.Label>Image</Form.Label>
+                  <Form.Label>Image 3</Form.Label>
                   <Form.Control type="url" placeholder="Image url..." />
                   <Form.Text id="formImage3Message" muted></Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formFacilities">
                   <Form.Label>Facilities</Form.Label>
                   <DropdownButton
-                    variant="outline-secondary"
-                    title="Dropdown"
+                    variant="outline-primary"
+                    title="Pick multiple"
                     id="input-group-dropdown-1"
+                    className="text-muted"
                   >
-                    <Form.Group className="mb-3" controlId="formBreakfast">
-                      <Form.Label>Breakfast_included</Form.Label>
-                      <InputGroup className="mb-3">
+                    <Form.Group className="mb-2" controlId="formBreakfast">
+                      <InputGroup>
                         <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                        <Form.Control
-                          type="text"
-                          placeholder="Breakfast_included..."
-                        />
                       </InputGroup>
+                      <Form.Label>Breakfast included</Form.Label>
+
                       <Form.Text id="formBreakfastMessage" muted></Form.Text>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formGym">
-                      <Form.Label>Gym</Form.Label>
-                      <InputGroup className="mb-3">
+                    <Form.Group className="mb-2" controlId="formGym">
+                      <InputGroup>
                         <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                        <Form.Control type="text" placeholder="Gym..." />
                       </InputGroup>
+                      <Form.Label>Gym</Form.Label>
+
                       <Form.Text id="formGymMessage" muted></Form.Text>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formInternett">
-                      <Form.Label>Internett</Form.Label>
-                      <InputGroup className="mb-3">
+                    <Form.Group className="mb-2" controlId="formInternett">
+                      <InputGroup>
                         <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                        <Form.Control type="text" placeholder="Internett..." />
                       </InputGroup>
+                      <Form.Label>Internett</Form.Label>
+
                       <Form.Text id="formInternettMessage" muted></Form.Text>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formParking">
-                      <Form.Label>Parking_available</Form.Label>
-                      <InputGroup className="mb-3">
+                    <Form.Group className="mb-2" controlId="formParking">
+                      <InputGroup>
                         <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                        <Form.Control type="text" placeholder="Parking..." />
                       </InputGroup>
+                      <Form.Label>Parking available</Form.Label>
+
                       <Form.Text id="formParkingMessage" muted></Form.Text>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formPet">
-                      <Form.Label>Pet_friendly</Form.Label>
-                      <InputGroup className="mb-3">
+                    <Form.Group className="mb-2" controlId="formPet">
+                      <InputGroup>
                         <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                        <Form.Control type="text" placeholder="Pet..." />
                       </InputGroup>
+                      <Form.Label>Pet friendly</Form.Label>
+
                       <Form.Text id="formPetMessage" muted></Form.Text>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formPool">
-                      <Form.Label>Pool</Form.Label>
-                      <InputGroup className="mb-3">
+                    <Form.Group className="mb-2" controlId="formPool">
+                      <InputGroup>
                         <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                        <Form.Control type="text" placeholder="Pool..." />
                       </InputGroup>
+                      <Form.Label>Pool</Form.Label>
+
                       <Form.Text id="formPoolMessage" muted></Form.Text>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formResturant">
-                      <Form.Label>Resturant</Form.Label>
-                      <InputGroup className="mb-3">
+                    <Form.Group className="mb-2" controlId="formResturant">
+                      <InputGroup>
                         <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                        <Form.Control type="text" placeholder="Resturant..." />
                       </InputGroup>
+                      <Form.Label>Resturant</Form.Label>
+
                       <Form.Text id="formResturantMessage" muted></Form.Text>
                     </Form.Group>
                   </DropdownButton>
@@ -171,70 +168,65 @@ export default function AdminCreateEstablishment() {
                 <Form.Group className="mb-3" controlId="formAttractions">
                   <Form.Label>Attractions</Form.Label>
                   <DropdownButton
-                    variant="outline-secondary"
-                    title="Dropdown"
+                    variant="outline-primary"
+                    title="Pick multiple"
                     id="input-group-dropdown-1"
                   >
-                    <Form.Group className="mb-3" controlId="formFloyen">
-                      <Form.Label>Floyen</Form.Label>
-                      <InputGroup className="mb-3">
+                    <Form.Group className="mb-2" controlId="formFloyen">
+                      <InputGroup>
                         <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                        <Form.Control type="text" placeholder="Floyen..." />
-                      </InputGroup>
+                      </InputGroup>{" "}
+                      <Form.Label>Floyen</Form.Label>
                       <Form.Text id="formFloyenMessage" muted></Form.Text>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formMuseum">
-                      <Form.Label>Edvard Grieg Museum Troldhaugen</Form.Label>
-                      <InputGroup className="mb-3">
+                    <Form.Group className="mb-2" controlId="formMuseum">
+                      <InputGroup>
                         <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                        <Form.Control type="text" placeholder="Museum..." />
-                      </InputGroup>
+                      </InputGroup>{" "}
+                      <Form.Label>Edvard Grieg Museum Troldhaugen</Form.Label>
                       <Form.Text id="formMuseumMessage" muted></Form.Text>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formLysverket">
-                      <Form.Label>Lysverket</Form.Label>
-                      <InputGroup className="mb-3">
+                    <Form.Group className="mb-2" controlId="formLysverket">
+                      <InputGroup>
                         <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                        <Form.Control type="text" placeholder="Lysverket..." />
                       </InputGroup>
+                      <Form.Label>Lysverket</Form.Label>
+
                       <Form.Text id="formLysverketMessage" muted></Form.Text>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formSjobadt">
-                      <Form.Label>Nordnes_sjobad</Form.Label>
-                      <InputGroup className="mb-3">
+                    <Form.Group className="mb-2" controlId="formSjobadt">
+                      <InputGroup>
                         <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                        <Form.Control type="text" placeholder="Sjobadt..." />
                       </InputGroup>
+                      <Form.Label>Nordnes sjobad</Form.Label>
+
                       <Form.Text id="formSjobadtMessage" muted></Form.Text>
                     </Form.Group>
 
                     <Form.Group
-                      className="mb-3"
+                      className="mb-2"
                       controlId="formFjordsightseeing"
                     >
-                      <Form.Label>Fjordsightseeing</Form.Label>
-                      <InputGroup className="mb-3">
+                      <InputGroup>
                         <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                        <Form.Control
-                          type="text"
-                          placeholder="Fjordsightseeing..."
-                        />
                       </InputGroup>
+                      <Form.Label>Fjordsightseeing</Form.Label>
+
                       <Form.Text
                         id="formFjordsightseeingMessage"
                         muted
                       ></Form.Text>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formSkostredet">
-                      <Form.Label>Skostredet</Form.Label>
-                      <InputGroup className="mb-3">
+                    <Form.Group className="mb-2" controlId="formSkostredet">
+                      <InputGroup>
                         <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                        <Form.Control type="text" placeholder="Skostredet..." />
                       </InputGroup>
+                      <Form.Label>Skostredet</Form.Label>
+
                       <Form.Text id="formSkostredetMessage" muted></Form.Text>
                     </Form.Group>
                   </DropdownButton>

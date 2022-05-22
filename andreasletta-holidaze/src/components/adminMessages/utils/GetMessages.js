@@ -2,22 +2,15 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { BASE_URL } from "../../../constants/api";
 import { getToken } from "../../admin/utils/Storage";
-import {
-  Row,
-  ListGroup,
-  Col,
-  Card,
-  Button,
-  Accordion,
-  Container,
-} from "react-bootstrap";
+import { Row, Col, Button, Container, Tab, Nav } from "react-bootstrap";
 import { format } from "date-fns";
+import CloseTab from "../../adminEnquiries/utils/CloseTab";
 const token = getToken();
 
 const url = BASE_URL + "messages";
 
 export default function GetMessages() {
-  const [enquiries, setEnquiries] = useState([]);
+  const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -32,7 +25,7 @@ export default function GetMessages() {
           });
 
           if (response.status === 200) {
-            setEnquiries(response.data.data);
+            setMessages(response.data.data);
           } else {
             setError("An error occured");
           }
@@ -59,58 +52,86 @@ export default function GetMessages() {
     console.log(error);
     return <div className="text-warning">An error occured: {error}</div>;
   }
-  console.log(enquiries);
 
   return (
-    <ListGroup>
-      <Row xs={1} md={2} lg={4}>
-        {enquiries.map(inquiry => {
-          var date = new Date(inquiry.attributes.publishedAt);
-          var formattedDate = format(date, "hh:mm a dd. MMMM yyyy");
-          return (
-            <Accordion key={inquiry.id}>
-              <Accordion.Item eventKey={inquiry.id}>
-                <Accordion.Header>
-                  <Row xs={1}>
-                    <Col>
-                      <Row xs={2}>
-                        <Col>{inquiry.attributes.subject}</Col>
-                        <Col>{formattedDate}</Col>
-                      </Row>
-                    </Col>
-                    <Col>{inquiry.attributes.message.slice(0, 100)}...</Col>
-                  </Row>
-                </Accordion.Header>
-                <Accordion.Body>
-                  <Row xs={1}>
+    <Tab.Container id="left-tabs-example">
+      <Row className="tab-row d-flex pt-3 pb-5">
+        <Col>
+          <Nav variant="pills" className="flex-column">
+            {messages.map(message => {
+              var date = new Date(message.attributes.publishedAt);
+              var formattedDate = format(date, "hh:mm a dd. MMMM yyyy");
+              return (
+                <Nav.Item key={message.id}>
+                  <Nav.Link eventKey={message.id}>
+                    <Row xs={1}>
+                      <Col>
+                        <Row xs={2} className="pb-3">
+                          <Col>{message.attributes.subject}</Col>
+                          <Col>{formattedDate}</Col>
+                        </Row>
+                      </Col>
+                      <Col>{message.attributes.message.slice(0, 100)}...</Col>
+                    </Row>
+                  </Nav.Link>
+                </Nav.Item>
+              );
+            })}
+          </Nav>
+        </Col>
+        <Col>
+          <Tab.Content>
+            {messages.map(message => {
+              var date = new Date(message.attributes.publishedAt);
+              var formattedDate = format(date, "hh:mm a dd. MMMM yyyy");
+              return (
+                <Tab.Pane
+                  eventKey={message.id}
+                  key={message.id}
+                  id={message.id}
+                >
+                  <Button
+                    onClick={() =>
+                      CloseTab(
+                        "left-tabs-example-tabpane-" + message.id,
+                        "left-tabs-example-tab-" + message.id
+                      )
+                    }
+                    className="d-md-none"
+                  >
+                    {" "}
+                    <i className="fa fa-solid fa-angle-left pe-2"></i>
+                    Back
+                  </Button>
+                  <Row xs={1} className="shadow">
                     <Col> {formattedDate}</Col>
                     <Col>
                       <p>
                         <span className="fw-bolder">Name: </span>
-                        {inquiry.attributes.name}
+                        {message.attributes.name}
                       </p>
                     </Col>
                     <Col>
                       <p>
                         {" "}
                         <span className="fw-bolder">Email: </span>:{" "}
-                        {inquiry.attributes.email}
+                        {message.attributes.email}
                       </p>{" "}
                     </Col>
                     <Col>
                       <p>
                         <span className="fw-bolder">Subject: </span>
-                        {inquiry.attributes.subject}
+                        {message.attributes.subject}
                       </p>
                     </Col>
-                    <Col> {inquiry.attributes.message}</Col>
+                    <Col> {message.attributes.message}</Col>
                   </Row>
-                </Accordion.Body>
-              </Accordion.Item>
-            </Accordion>
-          );
-        })}
+                </Tab.Pane>
+              );
+            })}{" "}
+          </Tab.Content>
+        </Col>
       </Row>
-    </ListGroup>
+    </Tab.Container>
   );
 }

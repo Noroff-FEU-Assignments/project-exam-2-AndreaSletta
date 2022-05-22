@@ -10,6 +10,17 @@ function GetAccommodationsList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const checkedFilters = {
+    accommodations: {
+      hotel: false,
+      cabin: false,
+      guesthouse: false,
+      hostel: false,
+      bnb: false,
+      apartment: false,
+    },
+  };
+
   const url = BASE_URL + "accommodations?populate=*";
 
   useEffect(
@@ -20,7 +31,6 @@ function GetAccommodationsList() {
 
           if (response.ok) {
             const json = await response.json();
-            console.log(json.data);
             setAccommodations(json.data);
           } else {
             setError("An error occured");
@@ -53,218 +63,130 @@ function GetAccommodationsList() {
 
   let accTypes = [];
 
-  let accFacilities = [];
-
   async function filteredContent() {
-    accTypes.forEach(async accType => {
-      accFacilities.forEach(async accFacility => {
-        const qs = require("qs");
-        const query = qs.stringify(
-          {
-            filters: {
-              type: accType,
-              facilities: accFacility,
-            },
-          },
-          {
-            encodeValuesOnly: true,
-          }
-        );
-        try {
-          const response = await fetch(
-            BASE_URL + `accommodations?populate=*${query}`
-          );
+    accTypes = [];
 
-          if (response.ok) {
-            const json = await response.json();
-            console.log(json.data);
+    let acc = [];
 
-            initialList = [json.data];
-          } else {
-            setError("An error occured");
-          }
-        } catch (error) {
-          setError(error.toString());
-        } finally {
-          setLoading(false);
-        }
-      });
-    });
-  }
+    //add endpoint to array
 
-  //functions that will add endpoint to filter url
+    if (checkedFilters.accommodations.hotel) {
+      accTypes.push({ $eq: "Hotel" });
+      acc.push("Hotel");
+    }
+    if (checkedFilters.accommodations.cabin) {
+      accTypes.push({ $eq: "Cabin" });
+      acc.push("Cabin");
+    }
+    if (checkedFilters.accommodations.guesthouse) {
+      accTypes.push({ $eq: "Guesthouse" });
+      acc.push("Guesthouse");
+    }
+    if (checkedFilters.accommodations.hostel) {
+      accTypes.push({ $eq: "Hostel" });
+      acc.push("Hostel");
+    }
+    if (checkedFilters.accommodations.bnb) {
+      accTypes.push({ $eq: "B&Bs" });
+      acc.push("B&Bs");
+    }
+    if (checkedFilters.accommodations.apartment) {
+      accTypes.push({ $eq: "Apartment" });
+      acc.push("Apartment");
+    }
 
-  //types
-  function filterHotel(event) {
-    if (event.target.checked === true) {
-      console.log("yes");
-      accTypes.push({ $contains: "Hotel" });
-    } else {
-      console.log("no");
+    const qs2 = require("qs");
+    const query = qs2.stringify(
+      {
+        filters: {
+          type: { $eq: acc },
+        },
+      },
+      {
+        encodeValuesOnly: true,
+      }
+    );
+
+    try {
+      const response = await fetch(BASE_URL + `accommodations?${query}`);
+
+      if (response.ok) {
+        const json = await response.json();
+        console.log(json.data);
+
+        initialList = [json.data];
+
+        console.log("there new:", initialList);
+      } else {
+        setError("An error occured");
+      }
+    } catch (error) {
+      setError(error.toString());
+    } finally {
+      setLoading(false);
     }
   }
-  function filterCabin() {
-    accTypes.push({ $in: "Cabin" });
-  }
-  function filterGuesthouse() {
-    accTypes.push({ $in: "Guesthouse" });
-  }
-  function filterHostel() {
-    accTypes.push({ $in: "Hostel" });
-  }
-  function filterBnBs() {
-    accTypes.push({ $in: "B&Bs" });
-  }
-  function filterApartment() {
-    accTypes.push({ $in: "Apartment" });
+
+  function filterHotel(event) {
+    if (event.target.checked === true) {
+      checkedFilters.accommodations.hotel = true;
+    } else {
+      checkedFilters.accommodations.hotel = false;
+    }
   }
 
-  //facitilies
-  function filterParking() {
-    accFacilities.push({
-      Parking_available: {
-        $eq: true,
-      },
-    });
+  function filterCabin(event) {
+    if (event.target.checked === true) {
+      checkedFilters.accommodations.cabin = true;
+    } else {
+      checkedFilters.accommodations.cabin = false;
+    }
   }
-  function filterBreakfast() {
-    accFacilities.push({
-      Breakfast_included: {
-        $eq: true,
-      },
-    });
+
+  function filterGuesthouse(event) {
+    if (event.target.checked === true) {
+      checkedFilters.accommodations.guesthouse = true;
+    } else {
+      checkedFilters.accommodations.guesthouse = false;
+    }
   }
-  function filterPet() {
-    accFacilities.push({
-      Pet_friendly: {
-        $eq: true,
-      },
-    });
+
+  function filterHostel(event) {
+    if (event.target.checked === true) {
+      checkedFilters.accommodations.hostel = true;
+    } else {
+      checkedFilters.accommodations.hostel = false;
+    }
   }
-  function filterGym() {
-    accFacilities.push({
-      Gym: {
-        $eq: true,
-      },
-    });
+
+  function filterBnBs(event) {
+    if (event.target.checked === true) {
+      checkedFilters.accommodations.bnb = true;
+    } else {
+      checkedFilters.accommodations.bnb = false;
+    }
   }
-  function filterPool() {
-    accFacilities.push({
-      Pool: {
-        $eq: true,
-      },
-    });
+
+  function filterApartment(event) {
+    if (event.target.checked === true) {
+      checkedFilters.accommodations.apartment = true;
+    } else {
+      checkedFilters.accommodations.apartment = false;
+    }
   }
-  function filterInternett() {
-    accFacilities.push({
-      Internett: {
-        $eq: true,
-      },
-    });
-  }
-  function filterResturant() {
-    accFacilities.push({
-      Resturant: {
-        $eq: true,
-      },
-    });
-  }
+  console.log("here:", accommodations);
+  console.log("there:", initialList);
 
   return (
     <>
-      <InputGroup className="mb-3 filter  ">
+      <InputGroup className="mb-3 filter d-none  ">
         <DropdownButton
           variant="outline-primary"
           title="Filter"
           id="input-group-dropdown-1"
         >
-          <p className="fw-bold m-0">Facilities</p>
-          <Container className="px-0  ">
-            <input
-              className="form-check-input me-2"
-              type="checkbox"
-              value=""
-              id="Breakfast_included"
-              onChange={filterBreakfast}
-            />
-            <label className="form-check-label" htmlFor="Breakfast_included">
-              Breakfast included
-            </label>
-          </Container>
-          <Container className="px-0">
-            <input
-              className="form-check-input me-2"
-              type="checkbox"
-              value=""
-              id="Gym"
-              onChange={filterGym}
-            />
-            <label className="form-check-label" htmlFor="Gym">
-              Gym
-            </label>{" "}
-          </Container>
-          <Container className="px-0">
-            <input
-              className="form-check-input me-2"
-              type="checkbox"
-              value=""
-              id="Internett"
-              onChange={filterInternett}
-            />
-            <label className="form-check-label" htmlFor="Internett">
-              Internett
-            </label>{" "}
-          </Container>
-          <Container className="px-0">
-            <input
-              className="form-check-input me-2"
-              type="checkbox"
-              value=""
-              id="Parking_available"
-              onChange={filterParking}
-            />
-            <label className="form-check-label" htmlFor="Parking_available">
-              Parking available
-            </label>{" "}
-          </Container>
-          <Container className="px-0">
-            <input
-              className="form-check-input me-2"
-              type="checkbox"
-              value=""
-              id="Pet_friendly"
-              onChange={filterPet}
-            />
-            <label className="form-check-label" htmlFor="Pet_friendly">
-              Pet friendly
-            </label>{" "}
-          </Container>
-          <Container className="px-0">
-            <input
-              className="form-check-input me-2"
-              type="checkbox"
-              value=""
-              id="Pool"
-              onChange={filterPool}
-            />
-            <label className="form-check-label" htmlFor="Pool">
-              Pool
-            </label>{" "}
-          </Container>
-          <Container className="px-0">
-            <input
-              className="form-check-input me-2"
-              type="checkbox"
-              value=""
-              id="Resturant"
-              onChange={filterResturant}
-            />
-            <label className="form-check-label" htmlFor="Resturant">
-              Resturant
-            </label>{" "}
-          </Container>
+          <i className="bi bi-filter-left"></i>
 
-          <Dropdown.Divider />
           <p className="fw-bold m-0">Type of accommodations</p>
 
           <Container className="px-0">
@@ -340,8 +262,6 @@ function GetAccommodationsList() {
               Apartment
             </label>{" "}
           </Container>
-
-          <Dropdown.Divider />
           <Button variant="outline-primary" onClick={filteredContent}>
             Use filter
           </Button>

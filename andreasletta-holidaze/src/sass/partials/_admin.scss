@@ -31,6 +31,9 @@
     margin: 0;
   }
 }
+#loginMessage i {
+  margin: auto;
+}
 
 // when logged in
 
@@ -50,8 +53,6 @@
       .row {
         align-content: flex-start;
         height: fit-content;
-        .col {
-        }
       }
     }
     .col:last-of-type {
@@ -73,10 +74,6 @@
       .col {
         form {
           align-self: center;
-        }
-      }
-      .col:last-of-type {
-        img {
         }
       }
     }

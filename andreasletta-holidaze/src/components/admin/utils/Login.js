@@ -1,8 +1,5 @@
 import { saveToken, saveUser, getUsername } from "./Storage";
 import { BASE_URL } from "../../../constants/api";
-import Admin from "../Admin";
-import React from "react";
-import { Redirect } from "react-router-dom";
 
 export default function login(event) {
   const email = document.querySelector("#inputEmail");
@@ -39,13 +36,12 @@ async function doLogin(email, password, loginMessage) {
 
       const currentUsername = getUsername();
       console.log("welcome", currentUsername);
-      loginMessage.innerHTML =
-        "<i className='fas fa-spinner fa-pulse text-body'></i>";
+      loginMessage.innerHTML = `<i class="fas fa-spinner fa-pulse text-body"></i>`;
 
       function reload() {
         setTimeout(function () {
           window.location.reload(false);
-        }, 3000);
+        }, 1500);
       }
       reload();
     }

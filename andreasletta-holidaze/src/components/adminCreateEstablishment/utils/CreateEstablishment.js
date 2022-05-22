@@ -116,7 +116,7 @@ export default function CreateEstablishment(event) {
     }
   }
 
-  // checkLength
+  // Check length
   function checkLength(value, len) {
     if (value.trim().length > len) {
       return true;
@@ -128,43 +128,59 @@ export default function CreateEstablishment(event) {
   //validate form and display errors
 
   if (checkLength(formName.value, 0)) {
-    formNameMessage.innerHTML = "Valid name";
+    formNameMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-check text-success pe-2"></i>
+    <p>Valid name</p></div>`;
   } else {
-    formNameMessage.innerHTML = "Please enter your name";
+    formNameMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-exclamation text-danger pe-2"></i>
+    <p>Please enter the accommodation name</p></div>`;
   }
 
   if (checkLength(formAddress.value, 0)) {
-    formAddressMessage.innerHTML = "Valid name";
+    formAddressMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-check text-success pe-2"></i>
+    <p>Valid address</p></div>`;
   } else {
-    formAddressMessage.innerHTML = "Please enter your name";
+    formAddressMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-exclamation text-danger pe-2"></i>
+    <p>Please enter the accommodation address</p></div>`;
   }
   if (checkLength(formPrice.value, 0)) {
-    formPriceMessage.innerHTML = "Valid name";
+    formPriceMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-check text-success pe-2"></i>
+    <p>Valid price</p></div>`;
   } else {
-    formPriceMessage.innerHTML = "Please enter your name";
+    formPriceMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-exclamation text-danger pe-2"></i>
+    <p>Please enter the accommodation price</p></div>`;
   }
   if (checkLength(formFeatured.value, 0)) {
-    formFeaturedMessage.innerHTML = `<i class="fa fa-solid fa-check">Valid name</i>`;
+    formFeaturedMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-check text-success pe-2"></i>
+    <p>Valid value</p></div>`;
   } else {
-    formFeaturedMessage.innerHTML = `<i class="fa fa-solid fa-x">"Please enter your name"</i>`;
+    formFeaturedMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-exclamation text-danger pe-2"></i>
+    <p>Please choose if accommodation is featured</p></div>`;
   }
   if (checkLength(formDescription.value, 0)) {
-    formDescriptionMessage.innerHTML = "Valid name";
+    formDescriptionMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-check text-success pe-2"></i>
+    <p>Valid description</p></div>`;
   } else {
-    formDescriptionMessage.innerHTML = `<i class="fa fa-solid fa-x">Please enter your name</i>`;
-  }
-  if (checkLength(formType.value, 0)) {
-    formTypeMessage.innerHTML = "Valid name";
-  } else {
-    formTypeMessage.innerHTML = "Please enter your name";
-  }
-  if (checkLength(formImage1.value, 0)) {
-    formImage1Message.innerHTML = "Valid name";
-  } else {
-    formImage1Message.innerHTML = "Please enter your name";
+    formDescriptionMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-exclamation text-danger pe-2"></i>
+    <p>Please enter your accommodation description</p></div>`;
   }
 
-  if (checkLength(formImage2.value, 0)) {
+  if (checkLength(formType.value, 0)) {
+    formTypeMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-check text-success pe-2"></i>
+    <p>Valid accommodation type</p></div>`;
+  } else {
+    formTypeMessage.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-exclamation text-danger pe-2"></i>
+    <p>Please choose an accommodation type</p></div>`;
+  }
+
+  if (isUrl(formImage1.value) === true) {
+    formImage1Message.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-check text-success pe-2"></i>
+    <p>Valid image url</p></div>`;
+  } else {
+    formImage1Message.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-exclamation text-danger pe-2"></i>
+    <p>Please enter a valid image url</p></div>`;
+  }
+
+  if (isUrl(formImage2.value) === true) {
     formImage2Message.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-check text-success pe-2"></i>
     <p>Valid image url</p></div>`;
   } else {
@@ -172,7 +188,7 @@ export default function CreateEstablishment(event) {
     <p>Please enter a valid image url</p></div>`;
   }
 
-  if (checkLength(formImage3.value, 0)) {
+  if (isUrl(formImage3.value) === true) {
     formImage3Message.innerHTML = `<div class="vertical-align"><i class="fa fa-solid fa-check text-success pe-2"></i>
     <p>Valid image url</p></div>`;
   } else {
@@ -180,20 +196,18 @@ export default function CreateEstablishment(event) {
     <p>Please enter a valid image url</p></div>`;
   }
 
-  function isImage(url) {
+  function isUrl(url) {
     var pattern = new RegExp(
       "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" +
         "((\\d{1,3}\\.){3}\\d{1,3}))" +
         "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" +
         "(\\?[;&a-z\\d%_.~+=-]*)?" +
-        "(\\#[-a-z\\d_]*)?$"
-    ); // fragment locator
+        "(\\#[-a-z\\d_]*)?$",
+      "i"
+    );
     return !!pattern.test(url);
   }
-  console.log(isImage(formImage3.value));
-  console.log(formImage3.value);
 
-  //If form vaild, send
   if (
     checkLength(formName.value, 0) &&
     checkLength(formAddress.value, 0) &&
@@ -201,9 +215,9 @@ export default function CreateEstablishment(event) {
     checkLength(formFeatured.value, 0) &&
     checkLength(formDescription.value, 0) &&
     checkLength(formType.value, 0) &&
-    checkLength(formImage1.value, 0) &&
-    checkLength(formImage2.value, 0) &&
-    checkLength(formImage3.value, 0)
+    isUrl(formImage1.value) === true &&
+    isUrl(formImage2.value) === true &&
+    isUrl(formImage3.value) === true
   ) {
     UploadAccomodation(
       nameValue,

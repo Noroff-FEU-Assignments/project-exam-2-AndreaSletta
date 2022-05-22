@@ -33,6 +33,25 @@
   }
 }
 
+//confirm box buttons
+
+.confirm-box__actions button {
+  border-color: black;
+  color: black;
+  border-radius: 0;
+  border-width: 2px;
+  transition: all 0.5s;
+  box-shadow: none;
+  background-color: transparent;
+
+  &:hover {
+    border-color: black;
+    background-color: black;
+    color: white;
+    transition: all 0.5s;
+  }
+}
+
 footer {
   .btn-primary {
     border-right: transparent;
@@ -53,6 +72,6 @@ footer {
     content: none;
   }
   .dropdown-toggle::before {
-    content: "\f0b0";
+    content: "\f3c6";
   }
 }
