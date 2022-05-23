@@ -67,6 +67,10 @@ export default function SearchInput() {
                             accommodation.attributes.images.data[0].attributes
                               .url
                           }
+                          alt={
+                            accommodation.attributes.images.data[0].attributes
+                              .alternativeText
+                          }
                         />
                       </Col>
                       <Col className="col-8">

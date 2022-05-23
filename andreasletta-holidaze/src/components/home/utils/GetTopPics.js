@@ -68,6 +68,10 @@ function GetTopPics() {
                             accommodation.attributes.images.data[0].attributes
                               .url
                           }
+                          alt={
+                            accommodation.attributes.images.data[0].attributes
+                              .alternativeText
+                          }
                         />
                         <Card.Body className="p-4">
                           <Card.Title>

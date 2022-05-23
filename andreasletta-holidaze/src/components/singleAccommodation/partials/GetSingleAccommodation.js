@@ -72,21 +72,30 @@ export default function GetSingleAccommodation() {
               <img
                 className=" shadow"
                 src={accommodations.attributes.images.data[0].attributes.url}
-                alt="First slide"
+                alt={
+                  accommodations.attributes.images.data[0].attributes
+                    .alternativeText
+                }
               />
             </Carousel.Item>
             <Carousel.Item className=" shadow">
               <img
                 className="shadow"
                 src={accommodations.attributes.images.data[1].attributes.url}
-                alt="Second slide"
+                alt={
+                  accommodations.attributes.images.data[0].attributes
+                    .alternativeText
+                }
               />
             </Carousel.Item>
             <Carousel.Item className=" shadow">
               <img
                 className=" shadow"
                 src={accommodations.attributes.images.data[2].attributes.url}
-                alt="Third slide"
+                alt={
+                  accommodations.attributes.images.data[0].attributes
+                    .alternativeText
+                }
               />
             </Carousel.Item>
           </Carousel>
