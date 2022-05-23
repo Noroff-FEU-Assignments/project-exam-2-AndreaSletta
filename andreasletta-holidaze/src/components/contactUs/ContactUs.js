@@ -33,7 +33,7 @@ export default function ContactUs() {
               </Form.Group>
               <Form.Group className="mb-3" controlId="formMessage">
                 <Form.Label>Message</Form.Label>
-                <Form.Control type="text" placeholder="Message..." />
+                <Form.Control as="textarea" rows={3} placeholder="Message..." />
                 <Form.Text id="formMessageMessage" muted></Form.Text>
               </Form.Group>
               <Container id="addMessageContainer"></Container>

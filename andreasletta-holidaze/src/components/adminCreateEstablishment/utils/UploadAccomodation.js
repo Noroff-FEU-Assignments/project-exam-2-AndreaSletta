@@ -52,7 +52,6 @@ export default async function UploadAccomodation(
           .then(result => {
             const id1 = result[0].id;
             imageIDs.push(id1);
-            console.log(result[0].id);
           })
           .catch(function (err) {
             console.log("error:", err);
@@ -79,7 +78,6 @@ export default async function UploadAccomodation(
           .then(result => {
             const imageId2 = result[0].id;
             imageIDs.push(imageId2);
-            console.log(result[0].id);
           })
           .catch(function (err) {
             console.log("error:", err);
@@ -105,7 +103,6 @@ export default async function UploadAccomodation(
           .then(response => response.json())
           .then(result => {
             const imageId3 = result[0].id;
-            console.log(result[0].id);
             imageIDs.push(imageId3);
           })
           .catch(function (err) {
@@ -113,16 +110,13 @@ export default async function UploadAccomodation(
           });
       });
   }
-
-  function reload() {
+  const message = document.querySelector("#addMessageContainer");
+  message.innerHTML = `
+        <i class="fas fa-spinner fa-pulse  text-body"></i>
+   `;
+  function upload() {
     setTimeout(function () {
       try {
-        if (imageIDs.length < 1 || imageIDs == undefined) {
-          console.log("empty");
-        } else {
-          console.log("not empty", imageIDs);
-        }
-
         const data = JSON.stringify({
           data: {
             name: name,
@@ -166,26 +160,21 @@ export default async function UploadAccomodation(
           },
         };
 
-        fetch(productUrl, options)
-          .then(console.log(productUrl, options))
-          .then(response => {
-            //console.log(imageIDs, data);
-            console.log(response);
-            console.log("<h2>Product added</h2>");
+        fetch(productUrl, options).then(response => {
+          message.innerHTML = `<p>Content added!</p>`;
 
-            /*
           function reload() {
             setTimeout(function () {
-              location.reload();
-            }, 3000);
+              window.location.reload(false);
+            }, 1500);
           }
-          reload();*/
-          });
+          reload();
+        });
       } catch (error) {
         console.log(error);
-        console.log("<h2>Upload failed</h2>");
+        message.innerHTML = `<p>Upload failed!</p>`;
       }
     }, 3000);
   }
-  reload();
+  upload();
 }

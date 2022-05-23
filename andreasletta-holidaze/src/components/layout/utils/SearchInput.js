@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { BASE_URL } from "../../../constants/api";
-import { ListGroup, Row, Col, Card, Button, Container } from "react-bootstrap";
+import { ListGroup, Row, Col, Card, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default function SearchInput() {
@@ -49,7 +49,7 @@ export default function SearchInput() {
 
   function RenderContent() {
     return (
-      <ListGroup id="searchResult" className="p-0 ">
+      <ListGroup id="searchResult" className="p-0  shadow">
         <Row xs={1}>
           {initialList.map(accommodation => {
             return (
@@ -130,6 +130,7 @@ export default function SearchInput() {
         }
       }
     });
+
     setInitialList(filteredAccommodations);
 
     RenderContent();

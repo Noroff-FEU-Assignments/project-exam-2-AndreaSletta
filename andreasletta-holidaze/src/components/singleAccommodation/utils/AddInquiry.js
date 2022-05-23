@@ -1,11 +1,5 @@
-//import { baseUrl } from "./settings/api.js";
-//import { getToken } from "./utils/storage.js";
-//import { getUsername } from "./utils/storage.js";
-//const loading = document.querySelector(".loading");
-
 import { BASE_URL } from "../../../constants/api";
 import axios from "axios";
-//const username = getUsername();
 
 export default function AddInquiry(event) {
   event.preventDefault();
@@ -86,12 +80,10 @@ export default function AddInquiry(event) {
         },
       })
       .then(response => {
-        console.log(response);
-
         function successMessage() {
           setInterval(function successMessage() {
-            inquiryModal.innerHTML = "Message sent";
-          }, 2000);
+            inquiryModal.innerHTML = "Message sent!";
+          }, 1000);
         }
         successMessage();
       });

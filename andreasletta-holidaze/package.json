@@ -20,6 +20,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "use-history": "^1.4.1",
+    "valid-url": "^1.0.9",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },

@@ -52,17 +52,12 @@
   .single-accommodations-container {
     .row {
       .carousel-col {
-        height: 100%;
-        align-content: center;
+        height: 70vh;
         .carousel-dark {
-          height: 100%;
-          align-content: center;
           .carousel-inner {
             .carousel-item {
-              height: 100%;
-
               img {
-                height: 300px;
+                object-fit: contain;
               }
             }
           }

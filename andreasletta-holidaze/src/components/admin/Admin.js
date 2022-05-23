@@ -13,7 +13,6 @@ const username = getUsername();
 
 export default function Admin() {
   if (username) {
-    console.log(username);
     return (
       <>
         <AdminNavbar />

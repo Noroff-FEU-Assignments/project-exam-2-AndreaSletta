@@ -9,7 +9,6 @@ const username = getUsername();
 
 export default function AdminMessages() {
   if (username) {
-    console.log(username);
     return (
       <>
         <AdminNavbar />

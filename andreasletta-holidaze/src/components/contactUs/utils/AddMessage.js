@@ -80,7 +80,7 @@ export default function AddMessage(event) {
         },
       })
       .then(response => {
-        addMessageContainer.innerHTML = `<h3>Message sent</h3>`;
+        addMessageContainer.innerHTML = `<p>Message sent!</p>`;
 
         function reload() {
           setTimeout(function () {

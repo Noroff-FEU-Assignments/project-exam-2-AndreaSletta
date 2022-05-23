@@ -1,4 +1,4 @@
-import { saveToken, saveUser, getUsername } from "./Storage";
+import { saveToken, saveUser } from "./Storage";
 import { BASE_URL } from "../../../constants/api";
 
 export default function login(event) {
@@ -33,9 +33,6 @@ async function doLogin(email, password, loginMessage) {
     if (json.user) {
       saveToken(json.jwt);
       saveUser(json.user);
-
-      const currentUsername = getUsername();
-      console.log("welcome", currentUsername);
       loginMessage.innerHTML = `<i class="fas fa-spinner fa-pulse text-body"></i>`;
 
       function reload() {

@@ -1,7 +1,6 @@
 import {
   Row,
   Col,
-  Navbar,
   Nav,
   Form,
   InputGroup,
@@ -18,7 +17,7 @@ export default function Footer() {
         </Col>{" "}
         <Col>
           <Row xs={1} md={3}>
-            <Col className="py-1">
+            <Col className="py-1 one">
               <Nav.Link to="/contactus">Contact us</Nav.Link>
               <Nav.Link to="/?">About us</Nav.Link>
               <Row xs={2} className="footer-icons">
@@ -36,7 +35,7 @@ export default function Footer() {
                 </Col>
               </Row>
             </Col>
-            <Col className="py-1">
+            <Col className="py-1 two">
               <Row xs={1}>
                 <Col>
                   <p>Sign up to our newsletter and get the latest deals!</p>
@@ -59,7 +58,7 @@ export default function Footer() {
                 </Col>
               </Row>
             </Col>
-            <Col className="py-1">
+            <Col className="py-1 three">
               <Row xs={1}>
                 <Col>
                   {" "}

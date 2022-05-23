@@ -238,7 +238,10 @@ export default function AdminCreateEstablishment() {
                 >
                   Submit
                 </Button>{" "}
-                <Container id="addMessageContainer"></Container>
+                <Container
+                  id="addMessageContainer"
+                  className="m-0 px-0 py-4"
+                ></Container>
               </Form>
             </Col>{" "}
           </Row>

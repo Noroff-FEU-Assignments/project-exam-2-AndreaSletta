@@ -1,9 +1,8 @@
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-//import HandleSubmitInquiry from "../utils/HandleSubmitInquiry";
 import AddInquiry from "../utils/AddInquiry";
-import { Container, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 export default function GetInquiryModal({ accommodation }) {
   const [show, setShow] = useState(false);
@@ -19,7 +18,7 @@ export default function GetInquiryModal({ accommodation }) {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton className="mx-3 mt-2">
-          <Modal.Title>Send "{accommodation}" an enquiry</Modal.Title>
+          <Modal.Title>Send {accommodation} an enquiry</Modal.Title>
         </Modal.Header>
         <Modal.Body id="inquiryModal" className="mx-3 mb-2">
           <Form>
@@ -40,7 +39,7 @@ export default function GetInquiryModal({ accommodation }) {
             </Form.Group>
             <Form.Group className="mb-3 py-2" controlId="formMessage">
               <Form.Label>Message</Form.Label>
-              <Form.Control type="text" placeholder="Message..." />
+              <Form.Control as="textarea" rows={3} placeholder="Message..." />
               <Form.Text id="formMessageMessage" muted></Form.Text>
             </Form.Group>
             <Button

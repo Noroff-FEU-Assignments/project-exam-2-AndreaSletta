@@ -3,7 +3,6 @@ import { confirm } from "react-confirm-box";
 
 export default async function Logout() {
   const doLogout = await confirm("Are you sure you want to logout?");
-  console.log(doLogout);
   if (doLogout) {
     clearStorage();
     window.location.reload(false);

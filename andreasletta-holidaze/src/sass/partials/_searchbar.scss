@@ -2,14 +2,25 @@
   form {
     .row {
       margin: auto;
+      justify-content: center;
+    }
+    #searchResult {
+      background-color: white;
+      a {
+        padding-bottom: 10px;
+        border-bottom: 2px solid black;
+      }
     }
 
     .form-control {
       border: 2px solid white;
       border-radius: 0;
       height: 25px;
+      background-color: white;
+      width: 300px;
 
-      &:after {
+      &:after,
+      &:focus {
         border: 2px solid white;
       }
     }
@@ -30,6 +41,14 @@
       }
     }
   }
+  .navbar-collapse {
+    form {
+      .row {
+        margin: 0;
+        width: 100%;
+      }
+    }
+  }
 }
 
 /* Media Query for Desktop*/
@@ -42,26 +61,43 @@
       justify-content: end;
     }
     #search-bar {
-      transition: all 0.5s;
+      transition: all 0.3s;
       .row {
         margin: 0;
       }
     }
     #search-bar:not(.show) {
       position: absolute;
-      transition: all 0.5s;
-      right: 80px;
+      transition: all 0.3s;
+      right: -80px;
+
       opacity: 0;
       top: 25px;
+      width: 100px;
     }
     #search-bar.show {
       display: block !important;
-      transition: all 0.5s;
+      transition: all 0.3s;
       position: absolute;
       width: 400px;
       right: 80px;
       top: 25px;
       opacity: 100;
+      background-color: transparent;
+
+      form {
+        #searchResult {
+          position: absolute;
+          right: 0px;
+          top: 26px;
+
+          max-height: 500px;
+          margin-top: 10px;
+        }
+        .form-control {
+          width: 200px;
+        }
+      }
     }
   }
 }

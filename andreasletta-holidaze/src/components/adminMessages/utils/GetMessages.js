@@ -50,7 +50,12 @@ export default function GetMessages() {
 
   if (error) {
     console.log(error);
-    return <div className="text-warning">An error occured: {error}</div>;
+    return (
+      <div className="text-warning">
+        <p>An error occured: {error}</p>{" "}
+        <p>Your session might have expired. Try logging out and in again!</p>
+      </div>
+    );
   }
 
   return (

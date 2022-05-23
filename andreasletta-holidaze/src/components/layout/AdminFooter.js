@@ -1,13 +1,4 @@
-import {
-  Row,
-  Col,
-  Navbar,
-  Nav,
-  Form,
-  InputGroup,
-  FormControl,
-  Button,
-} from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 export default function AdminFooter() {
   return (

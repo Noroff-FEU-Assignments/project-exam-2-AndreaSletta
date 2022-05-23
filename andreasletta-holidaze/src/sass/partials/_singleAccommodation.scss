@@ -3,28 +3,29 @@
     margin-left: -1.5rem;
     margin-right: -1.5rem;
     .bg-white {
-      p,
       div {
         max-width: 500px;
         margin: auto;
-      }
-    }
-    .col {
-      .row {
-        margin-left: auto;
-        margin-right: auto;
 
-        .col {
-          margin: 0;
+        .row {
+          margin-left: auto;
+          margin-right: auto;
+          p {
+            font-weight: 600;
+            margin: 0;
+          }
+          .col {
+            margin: 0;
 
-          .list-group {
-            list-style: circle;
-            .list-group-item {
-              border: none;
-              padding-left: 0;
-              margin-left: 0;
-              &::before {
-                content: "• ";
+            .list-group {
+              list-style: circle;
+              .list-group-item {
+                border: none;
+                padding-left: 0;
+                margin-left: 0;
+                &::before {
+                  content: "• ";
+                }
               }
             }
           }
@@ -40,8 +41,4 @@
 
 /* Media Query for Desktop*/
 @media (min-width: 922px) {
-  .single-accommodations-container {
-    .row {
-    }
-  }
 }

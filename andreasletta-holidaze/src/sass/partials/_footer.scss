@@ -47,17 +47,32 @@ footer {
     .row {
       .col {
         .row {
-          .col:first-child {
-            align-items: flex-start;
-
+          .one {
             a {
               text-align: left;
               padding-left: 1rem;
+              align-self: flex-start;
             }
-            .footer-icons .col {
-              padding-left: calc(var(--bs-gutter-x) * 0.5);
-              a {
-                text-align: left;
+
+            .footer-icons {
+              align-self: flex-start;
+              .col {
+                padding-left: calc(var(--bs-gutter-x) * 0.5);
+              }
+            }
+          }
+          .three {
+            .row {
+              .col {
+                justify-content: flex-end;
+                .row {
+                  .col:first-of-type {
+                    align-items: flex-end;
+                  }
+                }
+                a {
+                  text-align: right;
+                }
               }
             }
           }
@@ -69,4 +84,41 @@ footer {
 
 /* Media Query for Desktop*/
 @media (min-width: 922px) {
+  footer {
+    .row {
+      .col {
+        .row {
+          .one {
+            a {
+              text-align: left;
+              padding-left: 1rem;
+              align-self: flex-start;
+            }
+
+            .footer-icons {
+              align-self: flex-start;
+              .col {
+                padding-left: calc(var(--bs-gutter-x) * 0.5);
+              }
+            }
+          }
+          .three {
+            .row {
+              .col {
+                justify-content: flex-end;
+                .row {
+                  .col:first-of-type {
+                    align-items: flex-end;
+                  }
+                }
+                a {
+                  text-align: right;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

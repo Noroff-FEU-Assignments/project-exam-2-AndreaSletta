@@ -1,7 +1,7 @@
 import Heading from "../layout/Heading";
 import { Breadcrumb, Container } from "react-bootstrap";
 import GetAccommodationsList from "./partials/GetAccommodationsList";
-import Filter from "./partials/Filter";
+
 import Footer from "../layout/Footer";
 
 export default function Accommodations() {

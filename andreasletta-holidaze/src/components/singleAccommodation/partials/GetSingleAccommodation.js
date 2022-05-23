@@ -28,11 +28,9 @@ export default function GetSingleAccommodation() {
             setAccommodations(json.data);
           } else {
             setError("An error occured");
-            console.log("An error occured");
           }
         } catch (error) {
           setError(error.toString());
-          console.log(error);
         } finally {
           setLoading(false);
         }
@@ -52,7 +50,6 @@ export default function GetSingleAccommodation() {
   if (error) {
     return <div className="text-warning">An error occured: {error}</div>;
   }
-  console.log(accommodations);
 
   const attractions = accommodations.attributes.attractions[0];
   const facilities = accommodations.attributes.facilities[0];
@@ -68,24 +65,24 @@ export default function GetSingleAccommodation() {
       </Breadcrumb>
 
       <Heading title={accommodations.attributes.name} />
-      <Row xs={1} lg={2}>
-        <Col className="carousel-col py-4  ">
+      <Row>
+        <Col xs={12} lg={7} className="carousel-col py-4  ">
           <Carousel className="carousel-dark">
-            <Carousel.Item>
+            <Carousel.Item className=" shadow">
               <img
                 className=" shadow"
                 src={accommodations.attributes.images.data[0].attributes.url}
                 alt="First slide"
               />
             </Carousel.Item>
-            <Carousel.Item>
+            <Carousel.Item className=" shadow">
               <img
                 className="shadow"
                 src={accommodations.attributes.images.data[1].attributes.url}
                 alt="Second slide"
               />
             </Carousel.Item>
-            <Carousel.Item>
+            <Carousel.Item className=" shadow">
               <img
                 className=" shadow"
                 src={accommodations.attributes.images.data[2].attributes.url}
@@ -94,35 +91,37 @@ export default function GetSingleAccommodation() {
             </Carousel.Item>
           </Carousel>
         </Col>
-        <Col className="bg-white py-3 px-4 my-lg-4 shadow">
-          <p className="pt-1 pb-2">
-            <i className="bi bi-house"></i>
-            {accommodations.attributes.type}
-          </p>
-          <p className="py-2">
-            <i className="bi bi-map"></i>
-            {accommodations.attributes.address}
-          </p>
-          <p className="py-2">
-            <i className="bi bi-currency-dollar"></i>
-            {accommodations.attributes.price}
-          </p>
-          <p> {accommodations.attributes.description}</p>
-          <Row xs={2} className="py-4">
-            <Col className="pe-2 ps-0">
-              <ListGroup>
-                <h4>Facilities:</h4>
-                <GetFacilitiesCloseBy object={facilities} />
-              </ListGroup>
-            </Col>
-            <Col className="ps-2 pe-0">
-              <h4>Close by:</h4>
-              <ListGroup>
-                <GetFacilitiesCloseBy object={attractions} />
-              </ListGroup>
-            </Col>
-          </Row>
-          <GetInquiryModal accommodation={accommodations.attributes.name} />
+        <Col xs={12} lg={5} className="bg-white py-3 px-4 my-lg-4 shadow">
+          <Container>
+            <p className="pt-1 pb-2">
+              <i className="bi bi-house"></i>
+              {accommodations.attributes.type}
+            </p>
+            <p className="py-2">
+              <i className="bi bi-map"></i>
+              {accommodations.attributes.address}
+            </p>
+            <p className="py-2">
+              <i className="bi bi-currency-dollar"></i>
+              {accommodations.attributes.price}
+            </p>
+            <p> {accommodations.attributes.description}</p>
+            <Row className="py-4">
+              <Col className="pe-2 ps-0">
+                <ListGroup>
+                  <p>Facilities:</p>
+                  <GetFacilitiesCloseBy object={facilities} />
+                </ListGroup>
+              </Col>
+              <Col className="ps-2 pe-0">
+                <p>Close by:</p>
+                <ListGroup>
+                  <GetFacilitiesCloseBy object={attractions} />
+                </ListGroup>
+              </Col>
+            </Row>
+            <GetInquiryModal accommodation={accommodations.attributes.name} />
+          </Container>
         </Col>
       </Row>
     </Container>
