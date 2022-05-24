@@ -7,7 +7,7 @@ function AboveFold() {
   return (
     <Container className="px-0  clear-header above-fold">
       <Row xs={1} md={2} className="m-0 pt-md-5 pt-lg-5 ">
-        <Col className="col1 pt-5 pt-md-0 pt-lg-0 px-0 ">
+        <Col className="col1 pt-3 pt-md-0 pt-lg-0 px-0 ">
           <Row xs={1} className="m-0 ">
             <Col className="px-4 mx-md-4">
               <Heading
