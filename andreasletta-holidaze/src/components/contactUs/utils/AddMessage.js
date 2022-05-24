@@ -1,6 +1,5 @@
 import { BASE_URL } from "../../../constants/api";
 import axios from "axios";
-//const username = getUsername();
 
 export default function AddMessage(event) {
   event.preventDefault();
