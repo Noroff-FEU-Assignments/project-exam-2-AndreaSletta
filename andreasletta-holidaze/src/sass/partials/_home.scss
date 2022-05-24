@@ -12,8 +12,6 @@
       .row {
         align-content: space-between;
       }
-      img {
-      }
     }
     .col2 {
       justify-content: flex-end;
@@ -65,25 +63,6 @@
       }
     }
   }
-
-  //second container
-  /*
-  .top-picks {
-    .list-group .row {
-      grid-template-columns: repeat(4, 1fr);
-      .col {
-        width: 100%;
-        .list-group-item {
-          height: 100%;
-          a {
-            .card {
-              height: 100%;
-            }
-          }
-        }
-      }
-    }
-  }*/
 
   //Third container
   .home-information {
