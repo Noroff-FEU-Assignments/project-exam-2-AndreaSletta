@@ -3,7 +3,7 @@ Password: Pass1234
 
 # Your project title
 
-![image](https://user-images.githubusercontent.com/52622303/164316813-4b12d99f-aeb7-4069-85cf-e72b3a50ac99.png)
+![image](https://andreasletta-portfolio2.netlify.app/static/media/holidaze_home.658911713a350285b845.png)
 
 A simple overview of the use/purpose of the project.
 
